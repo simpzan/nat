@@ -15,6 +15,7 @@
 		76382F75204CF21300C76F45 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 76382F6C204CF21300C76F45 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FA8204D2AA100C76F45 /* TunnelClient.m */; };
+		76382FAD204D405400C76F45 /* TunnelServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FAC204D405400C76F45 /* TunnelServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		76382FA5204D27B300C76F45 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		76382FA7204D2AA100C76F45 /* TunnelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunnelClient.h; sourceTree = "<group>"; };
 		76382FA8204D2AA100C76F45 /* TunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunnelClient.m; sourceTree = "<group>"; };
+		76382FAB204D405400C76F45 /* TunnelServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TunnelServer.h; sourceTree = "<group>"; };
+		76382FAC204D405400C76F45 /* TunnelServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TunnelServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 			children = (
 				76382F6E204CF21300C76F45 /* PacketTunnelProvider.h */,
 				76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */,
+				76382FAB204D405400C76F45 /* TunnelServer.h */,
+				76382FAC204D405400C76F45 /* TunnelServer.m */,
 				76382F71204CF21300C76F45 /* Info.plist */,
 				76382F72204CF21300C76F45 /* PacketTunnel.entitlements */,
 			);
@@ -260,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
