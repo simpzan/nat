@@ -13,6 +13,8 @@
 		76382F61204CEC5500C76F45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382F60204CEC5500C76F45 /* main.m */; };
 		76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */; };
 		76382F75204CF21300C76F45 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 76382F6C204CF21300C76F45 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
+		76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FA8204D2AA100C76F45 /* TunnelClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacketTunnelProvider.m; sourceTree = "<group>"; };
 		76382F71204CF21300C76F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76382F72204CF21300C76F45 /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
+		76382FA5204D27B300C76F45 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		76382FA7204D2AA100C76F45 /* TunnelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunnelClient.h; sourceTree = "<group>"; };
+		76382FA8204D2AA100C76F45 /* TunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunnelClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +85,7 @@
 				76382F56204CEC5500C76F45 /* NAT */,
 				76382F6D204CF21300C76F45 /* PacketTunnel */,
 				76382F55204CEC5500C76F45 /* Products */,
+				76382F9F204D236300C76F45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +101,8 @@
 		76382F56204CEC5500C76F45 /* NAT */ = {
 			isa = PBXGroup;
 			children = (
+				76382FA7204D2AA100C76F45 /* TunnelClient.h */,
+				76382FA8204D2AA100C76F45 /* TunnelClient.m */,
 				76382F57204CEC5500C76F45 /* AppDelegate.h */,
 				76382F58204CEC5500C76F45 /* AppDelegate.m */,
 				76382F5A204CEC5500C76F45 /* Assets.xcassets */,
@@ -114,6 +123,14 @@
 				76382F72204CF21300C76F45 /* PacketTunnel.entitlements */,
 			);
 			path = PacketTunnel;
+			sourceTree = "<group>";
+		};
+		76382F9F204D236300C76F45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76382FA5204D27B300C76F45 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +184,26 @@
 					76382F53204CEC5500C76F45 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions = {
+								enabled = 1;
+							};
+						};
 					};
 					76382F6B204CF21300C76F45 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -217,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
 				76382F61204CEC5500C76F45 /* main.m in Sources */,
 				76382F59204CEC5500C76F45 /* AppDelegate.m in Sources */,
 			);

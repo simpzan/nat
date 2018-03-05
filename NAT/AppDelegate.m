@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "TunnelClient.h"
 
 @interface AppDelegate () {
+    TunnelClient *_client;
 }
 
 @property (weak) IBOutlet NSButtonCell *toggleSwitch;
@@ -20,6 +22,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    _client = [[TunnelClient alloc]init];
+    [self updateToggleState];
 }
 
 
@@ -29,7 +33,11 @@
 
 - (IBAction)toggle:(id)sender {
     NSLog(@"state %ld", self.toggleSwitch.state);
+    if ([_client connected]) [_client stop];
+    else [_client start];
 }
-
+- (void)updateToggleState {
+    self.toggleSwitch.state = _client.connected ? NSControlStateValueOn : NSControlStateValueOff;
+}
 
 @end
