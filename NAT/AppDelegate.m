@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 #import "TunnelClient.h"
+#import "ProxyServer.h"
 
 @interface AppDelegate () {
     TunnelClient *_client;
+    ProxyServer *_proxy;
 }
 
 @property (weak) IBOutlet NSButtonCell *toggleSwitch;
@@ -23,6 +25,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     _client = [[TunnelClient alloc]init];
+    _proxy = [[ProxyServer alloc]init];
     [self updateToggleState];
 }
 
@@ -33,8 +36,13 @@
 
 - (IBAction)toggle:(id)sender {
     NSLog(@"state %ld", self.toggleSwitch.state);
-    if ([_client connected]) [_client stop];
-    else [_client start];
+    if ([_client connected]) {
+        [_client stop];
+        [_proxy stop];
+    } else {
+        [_client start];
+        [_proxy startWithAddress:nil port:7878];
+    }
 }
 - (void)updateToggleState {
     self.toggleSwitch.state = _client.connected ? NSControlStateValueOn : NSControlStateValueOff;

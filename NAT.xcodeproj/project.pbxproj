@@ -16,6 +16,9 @@
 		76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FA8204D2AA100C76F45 /* TunnelClient.m */; };
 		76382FAD204D405400C76F45 /* TunnelServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FAC204D405400C76F45 /* TunnelServer.m */; };
+		76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; };
+		76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
+		76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,16 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		76382FB4204D613F00C76F45 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +74,9 @@
 		76382FA8204D2AA100C76F45 /* TunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunnelClient.m; sourceTree = "<group>"; };
 		76382FAB204D405400C76F45 /* TunnelServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TunnelServer.h; sourceTree = "<group>"; };
 		76382FAC204D405400C76F45 /* TunnelServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TunnelServer.m; sourceTree = "<group>"; };
+		76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		76382FB1204D5D6000C76F45 /* ProxyServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProxyServer.h; sourceTree = "<group>"; };
+		76382FB2204D5D6000C76F45 /* ProxyServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +121,8 @@
 		76382F56204CEC5500C76F45 /* NAT */ = {
 			isa = PBXGroup;
 			children = (
+				76382FB1204D5D6000C76F45 /* ProxyServer.h */,
+				76382FB2204D5D6000C76F45 /* ProxyServer.m */,
 				76382FA7204D2AA100C76F45 /* TunnelClient.h */,
 				76382FA8204D2AA100C76F45 /* TunnelClient.m */,
 				76382F57204CEC5500C76F45 /* AppDelegate.h */,
@@ -133,6 +152,7 @@
 		76382F9F204D236300C76F45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */,
 				76382FA5204D27B300C76F45 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
@@ -149,6 +169,7 @@
 				76382F51204CEC5500C76F45 /* Frameworks */,
 				76382F52204CEC5500C76F45 /* Resources */,
 				76382F79204CF21300C76F45 /* Embed App Extensions */,
+				76382FB4204D613F00C76F45 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -256,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
+				76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */,
 				76382F61204CEC5500C76F45 /* main.m in Sources */,
 				76382F59204CEC5500C76F45 /* AppDelegate.m in Sources */,
 			);
@@ -403,6 +425,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = NAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT;
@@ -418,6 +444,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = NAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT;
