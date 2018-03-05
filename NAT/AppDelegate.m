@@ -8,9 +8,12 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+}
 
+@property (weak) IBOutlet NSButtonCell *toggleSwitch;
 @property (weak) IBOutlet NSWindow *window;
+
 @end
 
 @implementation AppDelegate
@@ -22,6 +25,10 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+
+- (IBAction)toggle:(id)sender {
+    NSLog(@"state %ld", self.toggleSwitch.state);
 }
 
 
