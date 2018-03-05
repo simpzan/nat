@@ -11,7 +11,33 @@
 		76382F5B204CEC5500C76F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76382F5A204CEC5500C76F45 /* Assets.xcassets */; };
 		76382F5E204CEC5500C76F45 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76382F5C204CEC5500C76F45 /* MainMenu.xib */; };
 		76382F61204CEC5500C76F45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382F60204CEC5500C76F45 /* main.m */; };
+		76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */; };
+		76382F75204CF21300C76F45 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 76382F6C204CF21300C76F45 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76382F73204CF21300C76F45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76382F4C204CEC5500C76F45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76382F6B204CF21300C76F45;
+			remoteInfo = PacketTunnel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		76382F79204CF21300C76F45 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				76382F75204CF21300C76F45 /* PacketTunnel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		76382F54204CEC5500C76F45 /* NAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NAT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +48,22 @@
 		76382F5F204CEC5500C76F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76382F60204CEC5500C76F45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		76382F62204CEC5500C76F45 /* NAT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NAT.entitlements; sourceTree = "<group>"; };
+		76382F6C204CF21300C76F45 /* PacketTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PacketTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		76382F6E204CF21300C76F45 /* PacketTunnelProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketTunnelProvider.h; sourceTree = "<group>"; };
+		76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacketTunnelProvider.m; sourceTree = "<group>"; };
+		76382F71204CF21300C76F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76382F72204CF21300C76F45 /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		76382F51204CEC5500C76F45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76382F69204CF21300C76F45 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				76382F56204CEC5500C76F45 /* NAT */,
+				76382F6D204CF21300C76F45 /* PacketTunnel */,
 				76382F55204CEC5500C76F45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				76382F54204CEC5500C76F45 /* NAT.app */,
+				76382F6C204CF21300C76F45 /* PacketTunnel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +105,17 @@
 			path = NAT;
 			sourceTree = "<group>";
 		};
+		76382F6D204CF21300C76F45 /* PacketTunnel */ = {
+			isa = PBXGroup;
+			children = (
+				76382F6E204CF21300C76F45 /* PacketTunnelProvider.h */,
+				76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */,
+				76382F71204CF21300C76F45 /* Info.plist */,
+				76382F72204CF21300C76F45 /* PacketTunnel.entitlements */,
+			);
+			path = PacketTunnel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,15 +126,34 @@
 				76382F50204CEC5500C76F45 /* Sources */,
 				76382F51204CEC5500C76F45 /* Frameworks */,
 				76382F52204CEC5500C76F45 /* Resources */,
+				76382F79204CF21300C76F45 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				76382F74204CF21300C76F45 /* PBXTargetDependency */,
 			);
 			name = NAT;
 			productName = NAT;
 			productReference = 76382F54204CEC5500C76F45 /* NAT.app */;
 			productType = "com.apple.product-type.application";
+		};
+		76382F6B204CF21300C76F45 /* PacketTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76382F76204CF21300C76F45 /* Build configuration list for PBXNativeTarget "PacketTunnel" */;
+			buildPhases = (
+				76382F68204CF21300C76F45 /* Sources */,
+				76382F69204CF21300C76F45 /* Frameworks */,
+				76382F6A204CF21300C76F45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PacketTunnel;
+			productName = PacketTunnel;
+			productReference = 76382F6C204CF21300C76F45 /* PacketTunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +165,10 @@
 				ORGANIZATIONNAME = simpzan;
 				TargetAttributes = {
 					76382F53204CEC5500C76F45 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					76382F6B204CF21300C76F45 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -114,6 +188,7 @@
 			projectRoot = "";
 			targets = (
 				76382F53204CEC5500C76F45 /* NAT */,
+				76382F6B204CF21300C76F45 /* PacketTunnel */,
 			);
 		};
 /* End PBXProject section */
@@ -125,6 +200,13 @@
 			files = (
 				76382F5B204CEC5500C76F45 /* Assets.xcassets in Resources */,
 				76382F5E204CEC5500C76F45 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76382F6A204CF21300C76F45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +222,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		76382F68204CF21300C76F45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76382F74204CF21300C76F45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76382F6B204CF21300C76F45 /* PacketTunnel */;
+			targetProxy = 76382F73204CF21300C76F45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		76382F5C204CEC5500C76F45 /* MainMenu.xib */ = {
@@ -287,6 +385,34 @@
 			};
 			name = Release;
 		};
+		76382F77204CF21300C76F45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LL5MM59PQ7;
+				INFOPLIST_FILE = PacketTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT.PacketTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		76382F78204CF21300C76F45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LL5MM59PQ7;
+				INFOPLIST_FILE = PacketTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT.PacketTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -304,6 +430,15 @@
 			buildConfigurations = (
 				76382F66204CEC5500C76F45 /* Debug */,
 				76382F67204CEC5500C76F45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76382F76204CF21300C76F45 /* Build configuration list for PBXNativeTarget "PacketTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76382F77204CF21300C76F45 /* Debug */,
+				76382F78204CF21300C76F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
