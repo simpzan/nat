@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TunnelClient.h"
 #import "ProxyServer.h"
+#import "Utils.h"
 
 @interface AppDelegate () {
     TunnelClient *_client;
@@ -41,7 +42,10 @@
         [_proxy stop];
     } else {
         [_client start];
-        [_proxy startWithAddress:nil port:7878];
+        
+        delay(3, ^{
+            [_proxy startWithAddress:@"10.25.1.1" port:12345];
+        });
     }
 }
 - (void)updateToggleState {

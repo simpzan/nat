@@ -19,6 +19,9 @@
 		76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; };
 		76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
+		76B4DC40204F874800A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
+		76B4DC4120500FB200A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		76382F54204CEC5500C76F45 /* NAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NAT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76382F54204CEC5500C76F45 /* PacketTunnelNAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PacketTunnelNAT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76382F57204CEC5500C76F45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		76382F58204CEC5500C76F45 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		76382F5A204CEC5500C76F45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +80,10 @@
 		76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		76382FB1204D5D6000C76F45 /* ProxyServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProxyServer.h; sourceTree = "<group>"; };
 		76382FB2204D5D6000C76F45 /* ProxyServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyServer.m; sourceTree = "<group>"; };
+		76382FB6204D68AE00C76F45 /* TCPPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPPacket.h; sourceTree = "<group>"; };
+		76382FB7204D68AE00C76F45 /* TCPPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPPacket.m; sourceTree = "<group>"; };
+		76B4DC3E204F874800A0B19C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		76B4DC3F204F874800A0B19C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +109,7 @@
 		76382F4B204CEC5500C76F45 = {
 			isa = PBXGroup;
 			children = (
+				76B4DC422050150A00A0B19C /* Shared */,
 				76382F56204CEC5500C76F45 /* NAT */,
 				76382F6D204CF21300C76F45 /* PacketTunnel */,
 				76382F55204CEC5500C76F45 /* Products */,
@@ -112,7 +120,7 @@
 		76382F55204CEC5500C76F45 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76382F54204CEC5500C76F45 /* NAT.app */,
+				76382F54204CEC5500C76F45 /* PacketTunnelNAT.app */,
 				76382F6C204CF21300C76F45 /* PacketTunnel.appex */,
 			);
 			name = Products;
@@ -143,6 +151,8 @@
 				76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */,
 				76382FAB204D405400C76F45 /* TunnelServer.h */,
 				76382FAC204D405400C76F45 /* TunnelServer.m */,
+				76382FB6204D68AE00C76F45 /* TCPPacket.h */,
+				76382FB7204D68AE00C76F45 /* TCPPacket.m */,
 				76382F71204CF21300C76F45 /* Info.plist */,
 				76382F72204CF21300C76F45 /* PacketTunnel.entitlements */,
 			);
@@ -156,6 +166,15 @@
 				76382FA5204D27B300C76F45 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76B4DC422050150A00A0B19C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				76B4DC3E204F874800A0B19C /* Utils.h */,
+				76B4DC3F204F874800A0B19C /* Utils.m */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +197,7 @@
 			);
 			name = NAT;
 			productName = NAT;
-			productReference = 76382F54204CEC5500C76F45 /* NAT.app */;
+			productReference = 76382F54204CEC5500C76F45 /* PacketTunnelNAT.app */;
 			productType = "com.apple.product-type.application";
 		};
 		76382F6B204CF21300C76F45 /* PacketTunnel */ = {
@@ -279,6 +298,7 @@
 				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
 				76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */,
 				76382F61204CEC5500C76F45 /* main.m in Sources */,
+				76B4DC4120500FB200A0B19C /* Utils.m in Sources */,
 				76382F59204CEC5500C76F45 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +309,8 @@
 			files = (
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
+				76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */,
+				76B4DC40204F874800A0B19C /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +454,7 @@
 				INFOPLIST_FILE = NAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PacketTunnel$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -451,7 +473,7 @@
 				INFOPLIST_FILE = NAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PacketTunnel$(TARGET_NAME)";
 			};
 			name = Release;
 		};
