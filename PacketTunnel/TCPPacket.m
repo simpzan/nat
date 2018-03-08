@@ -8,8 +8,7 @@
 
 #import "TCPPacket.h"
 #import "Utils.h"
-
-
+#import "Checksum.h"
 
 @interface TCPPacket() {
     NSMutableData *_data;
@@ -60,15 +59,8 @@
     setAddress([_data mutableBytes] + 16, destinationAddress);
 }
 
-- (void)resetChecksums {
-    uint16_t *data = (uint16_t *)([_data mutableBytes] + 10);
-    *data = 0;
-    data = (uint16_t *)([_data mutableBytes] + 16 + _ipHeaderSize);
-    *data = 0;
-}
-
 - (NSData *)raw {
-    [self resetChecksums];
+    computeChecksums(_bytes);
     return _data;
 }
 

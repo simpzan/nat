@@ -22,6 +22,7 @@
 		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
 		76B4DC40204F874800A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76B4DC4120500FB200A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
+		76E2AD3120513ABB0034713E /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		76382FB7204D68AE00C76F45 /* TCPPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPPacket.m; sourceTree = "<group>"; };
 		76B4DC3E204F874800A0B19C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		76B4DC3F204F874800A0B19C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		76E2AD2F20513ABA0034713E /* Checksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
+		76E2AD3020513ABB0034713E /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				76382FAC204D405400C76F45 /* TunnelServer.m */,
 				76382FB6204D68AE00C76F45 /* TCPPacket.h */,
 				76382FB7204D68AE00C76F45 /* TCPPacket.m */,
+				76E2AD3020513ABB0034713E /* Checksum.h */,
+				76E2AD2F20513ABA0034713E /* Checksum.m */,
 				76382F71204CF21300C76F45 /* Info.plist */,
 				76382F72204CF21300C76F45 /* PacketTunnel.entitlements */,
 			);
@@ -310,6 +315,7 @@
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
 				76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */,
+				76E2AD3120513ABB0034713E /* Checksum.m in Sources */,
 				76B4DC40204F874800A0B19C /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
