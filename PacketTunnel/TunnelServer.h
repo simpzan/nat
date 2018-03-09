@@ -14,5 +14,6 @@ typedef void (^Callback)(NSError *error);
 @interface TunnelServer : NSObject
 
 - (void)start:(NEPacketTunnelProvider *)provider :(Callback)callback;
+- (void)stop;
 
 @end

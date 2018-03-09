@@ -9,26 +9,21 @@
 #import "TunnelServer.h"
 #import "TCPPacket.h"
 #import "Utils.h"
+#import "ProxyServer.h"
+#import "Config.h"
 
-
-static NSString *interfaceIp = @"10.25.1.1";
-static NSString *remoteIp = @"10.25.1.2";
-static NSString *fakeIp = @"10.25.1.100";
-static uint16_t proxyPort = 12345;
-static NSString *proxyIp = @"10.25.1.1";
-static NSString *dnsIp = @"114.114.114.114";
-static NSString *netMask = @"255.255.255.0";
 
 @interface TunnelServer() {
     NSMutableDictionary *_map;
     NSMutableDictionary *_PortMap;
+    ProxyServer *_proxy;
 }
 @end
 
 @implementation TunnelServer
 
 - (NEPacketTunnelNetworkSettings *)getTunnelSettings {
-    NEIPv4Route *route = [[NEIPv4Route alloc]initWithDestinationAddress:@"115.239.210.27" subnetMask:netMask];
+    NEIPv4Route *route = [[NEIPv4Route alloc]initWithDestinationAddress:routedIp subnetMask:netMask];
     NEIPv4Settings *v4 = [[NEIPv4Settings alloc]initWithAddresses:@[interfaceIp] subnetMasks:@[netMask]];
     v4.includedRoutes = @[route];
 
@@ -42,7 +37,7 @@ static NSString *netMask = @"255.255.255.0";
 - (NSData *)translatedPacket:(NSData *)data {
     TCPPacket *packet = [[TCPPacket alloc]initWithData:data];
     NSLog(@"in %@:%u -> %@:%u", packet.sourceAddress, packet.sourcePort, packet.destinationAddress, packet.destinationPort);
-    uint16_t proxyServerPort = proxyPort;
+    uint16_t proxyServerPort = appProxyPort;
     NSString *fakeSourceIP = fakeIp;
     NSString *proxyServerIP = proxyIp;
 
@@ -78,7 +73,6 @@ static NSString *netMask = @"255.255.255.0";
 
 - (void)readPackets:(NEPacketTunnelFlow *)flow {
     [flow readPacketsWithCompletionHandler:^(NSArray<NSData *> * _Nonnull packets, NSArray<NSNumber *> * _Nonnull protocols) {
-        NSLog(@"read %ld", packets.count);
         [packets enumerateObjectsUsingBlock:^(NSData * _Nonnull data, NSUInteger idx, BOOL * _Nonnull stop) {
             NSData *translatedPacket = [self translatedPacket:data];
 //            NSLog(@"translated: \n%@ \n%@", [data hexRepresentation], [translatedPacket hexRepresentation]);
@@ -95,15 +89,20 @@ static NSString *netMask = @"255.255.255.0";
     NSLog(@"%s", __FUNCTION__);
     _map = [NSMutableDictionary dictionary];
     _PortMap = [NSMutableDictionary dictionary];
+    _proxy = [[ProxyServer alloc]init];
 
     [provider setTunnelNetworkSettings:[self getTunnelSettings] completionHandler:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"setTunnelNetworkSettings error, %@", error);
         } else {
+            [_proxy startWithAddress:proxyIp port:extensionProxyPort];
             [self readPackets:provider.packetFlow];
         }
         return callback(error);
     }];
 }
 
+- (void)stop {
+    [_proxy stop];
+}
 @end

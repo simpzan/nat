@@ -10,6 +10,7 @@
 #import "TunnelClient.h"
 #import "ProxyServer.h"
 #import "Utils.h"
+#import "Config.h"
 
 @interface AppDelegate () {
     TunnelClient *_client;
@@ -44,7 +45,7 @@
         [_client start];
         
         delay(3, ^{
-            [_proxy startWithAddress:@"10.25.1.1" port:12345];
+            [_proxy startWithAddress:proxyIp port:appProxyPort];
         });
     }
 }

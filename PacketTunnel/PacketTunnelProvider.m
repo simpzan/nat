@@ -27,6 +27,7 @@
 	// Add code here to start the process of stopping the tunnel.
     NSLog(@"%s", __FUNCTION__);
     completionHandler();
+    [_server stop];
     _server = nil;
 }
 

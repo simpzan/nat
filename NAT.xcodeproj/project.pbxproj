@@ -22,6 +22,8 @@
 		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
 		76B4DC40204F874800A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76B4DC4120500FB200A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
+		76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
+		76D0A6C8205149AD0074BFC0 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; };
 		76E2AD3120513ABB0034713E /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,7 @@
 		76382FB7204D68AE00C76F45 /* TCPPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPPacket.m; sourceTree = "<group>"; };
 		76B4DC3E204F874800A0B19C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		76B4DC3F204F874800A0B19C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		76D0A6C920514DFF0074BFC0 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		76E2AD2F20513ABA0034713E /* Checksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
 		76E2AD3020513ABB0034713E /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */,
+				76D0A6C8205149AD0074BFC0 /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +136,6 @@
 		76382F56204CEC5500C76F45 /* NAT */ = {
 			isa = PBXGroup;
 			children = (
-				76382FB1204D5D6000C76F45 /* ProxyServer.h */,
-				76382FB2204D5D6000C76F45 /* ProxyServer.m */,
 				76382FA7204D2AA100C76F45 /* TunnelClient.h */,
 				76382FA8204D2AA100C76F45 /* TunnelClient.m */,
 				76382F57204CEC5500C76F45 /* AppDelegate.h */,
@@ -178,6 +180,9 @@
 			children = (
 				76B4DC3E204F874800A0B19C /* Utils.h */,
 				76B4DC3F204F874800A0B19C /* Utils.m */,
+				76382FB1204D5D6000C76F45 /* ProxyServer.h */,
+				76382FB2204D5D6000C76F45 /* ProxyServer.m */,
+				76D0A6C920514DFF0074BFC0 /* Config.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
+				76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
 				76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */,
 				76E2AD3120513ABB0034713E /* Checksum.m in Sources */,
@@ -489,6 +495,10 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT.PacketTunnel;
@@ -503,6 +513,10 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT.PacketTunnel;
