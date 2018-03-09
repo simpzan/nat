@@ -28,25 +28,35 @@
     // Insert code here to initialize your application
     _client = [[TunnelClient alloc]init];
     _proxy = [[ProxyServer alloc]init];
+
+    [_client start];
+    [_client monitorState:^(BOOL state) {
+        if (state) {
+            [_proxy startWithAddress:proxyIp port:appProxyPort];
+        } else {
+            [_proxy stop];
+        }
+        [self updateToggleState];
+    }];
     [self updateToggleState];
+    NSLog(@"start");
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+    [_client stop];
+    [_proxy stop];
+
+    NSLog(@"stop");
 }
 
 - (IBAction)toggle:(id)sender {
     NSLog(@"state %ld", self.toggleSwitch.state);
     if ([_client connected]) {
         [_client stop];
-        [_proxy stop];
     } else {
         [_client start];
-        
-        delay(3, ^{
-            [_proxy startWithAddress:proxyIp port:appProxyPort];
-        });
     }
 }
 - (void)updateToggleState {

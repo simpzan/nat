@@ -12,6 +12,7 @@
 
 @interface TunnelClient () {
     NETunnelProviderManager *_manager;
+    id _observer;
 }
 @end
 
@@ -56,15 +57,21 @@ typedef void (^ManagerCallback)(NETunnelProviderManager *__nullable manager);
     }];
 }
 
+- (void)startVPN {
+    NSError *error = nil;
+    BOOL result = [_manager.connection startVPNTunnelWithOptions:nil andReturnError:&error];
+    NSLog(@"manager %p, result %d, %@", _manager, result, error);
+}
+
 - (void)start {
+    if (_manager) {
+        return [self startVPN];
+    }
     [self getManager:^(NETunnelProviderManager * _Nullable manager) {
         if (!manager) return NSLog(@"failed to get manager");
 
         _manager = manager;
-        NSError *error = nil;
-        BOOL result = [manager.connection startVPNTunnelWithOptions:nil andReturnError:&error];
-        NSLog(@"manager %p, result %d, %@", manager, result, error);
-
+        [self startVPN];
     }];
 }
 
@@ -77,5 +84,17 @@ typedef void (^ManagerCallback)(NETunnelProviderManager *__nullable manager);
     return _manager && _manager.connection.status == NEVPNStatusConnected;
 }
 
+- (void)monitorState:(StateChangeCallback)callback {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    if (callback) {
+        _observer = [nc addObserverForName:NEVPNStatusDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+            NETunnelProviderSession *session = note.object;
+            NSLog(@"%p, %@", session, note.userInfo);
+            callback(session.status == NEVPNStatusConnected);
+        }];
+    } else {
+        [nc removeObserver:_observer];
+    }
+}
 
 @end

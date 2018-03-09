@@ -14,4 +14,7 @@
 - (void)stop;
 - (BOOL)connected;
 
+typedef void (^StateChangeCallback)(BOOL state);
+- (void)monitorState:(StateChangeCallback)callback;
+
 @end
