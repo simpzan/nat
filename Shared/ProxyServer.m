@@ -8,9 +8,11 @@
 
 #import "ProxyServer.h"
 #import <CocoaAsyncSocket/CocoaAsyncSocket.h>
+#import "Tunnel.h"
 
 @interface ProxyServer() <GCDAsyncSocketDelegate> {
     GCDAsyncSocket *_socket;
+    NSMutableArray *_tunnels;
 }
 @end
 
@@ -18,6 +20,8 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket {
     NSLog(@"%s", __FUNCTION__);
+    Tunnel *tunnel = [[Tunnel alloc]initWithSocket:newSocket];
+    [_tunnels addObject:tunnel];
 }
 
 - (BOOL)startWithAddress:(NSString *)address port:(uint16)port {
