@@ -17,6 +17,7 @@
     NSMutableDictionary *_map;
     NSMutableDictionary *_PortMap;
     ProxyServer *_proxy;
+    NEPacketTunnelProvider *_provider;
 }
 @end
 
@@ -87,10 +88,12 @@
 }
 - (void)start:(NEPacketTunnelProvider *)provider :(Callback)callback {
     NSLog(@"%s", __FUNCTION__);
+//    [self test];
+    
     _map = [NSMutableDictionary dictionary];
     _PortMap = [NSMutableDictionary dictionary];
     _proxy = [[ProxyServer alloc]init];
-
+    _provider = provider;
     [provider setTunnelNetworkSettings:[self getTunnelSettings] completionHandler:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"setTunnelNetworkSettings error, %@", error);
@@ -98,8 +101,28 @@
             [_proxy startWithAddress:proxyIp port:extensionProxyPort];
             [self readPackets:provider.packetFlow];
         }
+        
+        delay(1, ^{
+            [self test2];
+        });
         return callback(error);
     }];
+}
+
+- (void)test {
+    NSError *err = nil;
+    NSString *response =  [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://115.239.210.27"] encoding:NSUTF8StringEncoding error:&err];
+    NSLog(@"response %@, %@", response, err);
+}
+
+- (void)test2 {
+    NSLog(@"%s", __FUNCTION__);
+
+    NWEndpoint *endpoint = [NWHostEndpoint endpointWithHostname:@"115.239.210.27" port:@"88"];
+    [_provider createTCPConnectionThroughTunnelToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
+//    NWTCPConnection *connection = [_provider createTCPConnectionToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
+    
+    
 }
 
 - (void)stop {
