@@ -31,7 +31,7 @@
 - (NSData *)translatedPacket:(NSData *)data {
     TCPPacket *packet = [[TCPPacket alloc]initWithData:data];
     NSLog(@"in %@:%u -> %@:%u", packet.sourceAddress, packet.sourcePort, packet.destinationAddress, packet.destinationPort);
-    uint16_t proxyServerPort = appProxyPort;
+    uint16_t proxyServerPort = extensionProxyPort;
     NSString *fakeSourceIP = fakeIp;
     NSString *proxyServerIP = proxyIp;
     
