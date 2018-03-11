@@ -16,6 +16,7 @@
 }
 @end
 
+static NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
 
 @implementation TunnelClient
 
@@ -27,15 +28,26 @@ typedef void (^ManagerCallback)(NETunnelProviderManager *__nullable manager);
     [NETunnelProviderManager loadAllFromPreferencesWithCompletionHandler:^(
                                                                            NSArray<NETunnelProviderManager *> * _Nullable managers,
                                                                            NSError * _Nullable error) {
-        if (!error && [managers count] > 0) callback(managers[0]);
-        else callback(nil);
+        if (error) return callback(nil);
+        
+        __block NETunnelProviderManager *result = nil;
+        [managers enumerateObjectsUsingBlock:^(NETunnelProviderManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([[obj protocolConfiguration] isKindOfClass:[NETunnelProviderProtocol class]]) {
+                NETunnelProviderProtocol *config = [obj protocolConfiguration];
+                if ([config.providerBundleIdentifier isEqualToString:providerBundleIdentifier]) {
+                    result = obj;
+                    *stop = YES;
+                }
+            }
+        }];
+        callback(result);
     }];
 }
 - (void)createManager:(ManagerCallback)callback {
     NSLog(@"%s", __FUNCTION__);
 
     NETunnelProviderProtocol *config = [[NETunnelProviderProtocol alloc]init];
-    config.providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
+    config.providerBundleIdentifier = providerBundleIdentifier;
     config.serverAddress = @"10.0.0.2";
 
     NETunnelProviderManager *manager = [[NETunnelProviderManager alloc]init];
