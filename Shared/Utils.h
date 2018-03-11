@@ -17,8 +17,9 @@ void setPort(void *data, uint16_t port);
 
 void delay(double delayInSeconds, void(^callback)(void));
 
-@interface NSArray(Map)
+@interface NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block;
+- (id)findFirstObjectUsingBlock:(BOOL (^)(id obj, NSUInteger idx))predicate;
 @end
 
 

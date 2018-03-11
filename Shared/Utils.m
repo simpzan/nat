@@ -43,7 +43,7 @@ void delay(double delayInSeconds, void(^callback)(void)){
     });
 }
 
-@implementation NSArray(map)
+@implementation NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -51,8 +51,23 @@ void delay(double delayInSeconds, void(^callback)(void)){
     }];
     return result;
 }
+- (id)findFirstObjectUsingBlock:(BOOL (^)(id ojb, NSUInteger idx))predicate {
+    __block id result = nil;
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (predicate(obj, idx)) {
+            result = obj;
+            *stop = YES;
+        }
+    }];
+    return result;
+}
+- (void)test{
+    NSArray<NSNumber *> * a = @[@1, @2];
+    [a findFirstObjectUsingBlock:^BOOL(id obj, NSUInteger idx) {
+        return YES;
+    }];
+}
 @end
-
 
 @implementation NSData(Hex)
 - (NSString*)hexRepresentation {
