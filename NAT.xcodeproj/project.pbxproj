@@ -22,8 +22,10 @@
 		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
 		7677E2482052ED2100478C55 /* Tunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7677E2472052ED2100478C55 /* Tunnel.m */; };
 		7677E2492052ED2100478C55 /* Tunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7677E2472052ED2100478C55 /* Tunnel.m */; };
+		769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76B4DC40204F874800A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76B4DC4120500FB200A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
+		76CB686C20553E8900A4CA19 /* NAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CB686B20553E8900A4CA19 /* NAT.m */; };
 		76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76D0A6C8205149AD0074BFC0 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; };
 		76E2AD3120513ABB0034713E /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
@@ -91,6 +93,8 @@
 		7677E2472052ED2100478C55 /* Tunnel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tunnel.m; sourceTree = "<group>"; };
 		76B4DC3E204F874800A0B19C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		76B4DC3F204F874800A0B19C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		76CB686A20553E8900A4CA19 /* NAT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAT.h; sourceTree = "<group>"; };
+		76CB686B20553E8900A4CA19 /* NAT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAT.m; sourceTree = "<group>"; };
 		76D0A6C920514DFF0074BFC0 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		76E2AD2F20513ABA0034713E /* Checksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
 		76E2AD3020513ABB0034713E /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */,
+				769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +165,8 @@
 				76382F6F204CF21300C76F45 /* PacketTunnelProvider.m */,
 				76382FAB204D405400C76F45 /* TunnelServer.h */,
 				76382FAC204D405400C76F45 /* TunnelServer.m */,
+				76CB686A20553E8900A4CA19 /* NAT.h */,
+				76CB686B20553E8900A4CA19 /* NAT.m */,
 				76382FB6204D68AE00C76F45 /* TCPPacket.h */,
 				76382FB7204D68AE00C76F45 /* TCPPacket.m */,
 				76E2AD3020513ABB0034713E /* Checksum.h */,
@@ -252,6 +259,9 @@
 							com.apple.NetworkExtensions = {
 								enabled = 1;
 							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
 						};
 					};
 					76382F6B204CF21300C76F45 = {
@@ -327,6 +337,7 @@
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
+				76CB686C20553E8900A4CA19 /* NAT.m in Sources */,
 				76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */,
 				76E2AD3120513ABB0034713E /* Checksum.m in Sources */,
 				7677E2492052ED2100478C55 /* Tunnel.m in Sources */,
