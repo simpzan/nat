@@ -33,7 +33,7 @@ typedef void (^ManagerCallback)(NETunnelProviderManager *__nullable manager);
         __block NETunnelProviderManager *result = nil;
         [managers enumerateObjectsUsingBlock:^(NETunnelProviderManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([[obj protocolConfiguration] isKindOfClass:[NETunnelProviderProtocol class]]) {
-                NETunnelProviderProtocol *config = [obj protocolConfiguration];
+                NETunnelProviderProtocol *config = (NETunnelProviderProtocol *)[obj protocolConfiguration];
                 if ([config.providerBundleIdentifier isEqualToString:providerBundleIdentifier]) {
                     result = obj;
                     *stop = YES;
