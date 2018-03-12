@@ -22,15 +22,32 @@
 
 @implementation TunnelServer
 
+- (NEProxySettings *)getProxySettings {
+    NEProxySettings *proxySettings = [[NEProxySettings alloc] init];
+    proxySettings.HTTPEnabled = true;
+    proxySettings.HTTPServer = [[NEProxyServer alloc] initWithAddress:@"127.0.0.1" port:extensionProxyPort];
+    proxySettings.HTTPSEnabled = true;
+    proxySettings.HTTPSServer = proxySettings.HTTPServer;
+    proxySettings.excludeSimpleHostnames = true;
+    // This will match all domains
+    proxySettings.matchDomains = @[@""];
+    return proxySettings;
+}
+
 - (NEPacketTunnelNetworkSettings *)getTunnelSettings {
     NEIPv4Route *route = [[NEIPv4Route alloc]initWithDestinationAddress:routedIp subnetMask:netMask];
+    NEIPv4Route *dnsRoute = [[NEIPv4Route alloc]initWithDestinationAddress:dnsIp subnetMask:@"255.255.255.255"];
+    
+    NEIPv4Route *defaultRoute = [NEIPv4Route defaultRoute];
     NEIPv4Settings *v4 = [[NEIPv4Settings alloc]initWithAddresses:@[interfaceIp] subnetMasks:@[netMask]];
-    v4.includedRoutes = @[route];
+    v4.includedRoutes = @[defaultRoute];
+    v4.excludedRoutes = @[dnsRoute];
 
     NEPacketTunnelNetworkSettings *settings = [[NEPacketTunnelNetworkSettings alloc]initWithTunnelRemoteAddress:remoteIp];
     settings.MTU = [NSNumber numberWithInt:1500];
     settings.IPv4Settings = v4;
     settings.DNSSettings = [[NEDNSSettings alloc]initWithServers:@[dnsIp]];
+    settings.proxySettings = [self getProxySettings];
     return settings;
 }
 
