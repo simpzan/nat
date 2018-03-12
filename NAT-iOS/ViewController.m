@@ -7,21 +7,49 @@
 //
 
 #import "ViewController.h"
+#import "TunnelClient.h"
+#import "ProxyServer.h"
+#import "Utils.h"
+#import "Config.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    TunnelClient *_client;
+    ProxyServer *_proxy;
+}
 @property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 @end
 
 @implementation ViewController
 - (IBAction)toggleSwitch:(id)sender {
-    NSLog(@"toggle");
+    NSLog(@"state %ld", self.switchButton.state);
+    if ([_client connected]) {
+        [_client stop];
+    } else {
+        [_client start];
+    }
+    
 }
     
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    _client = [[TunnelClient alloc]init];
+    _proxy = [[ProxyServer alloc]init];
+    
+    [_client start];
+    [_client monitorState:^(BOOL state) {
+        if (state) {
+            [_proxy startWithAddress:proxyIp port:appProxyPort];
+        } else {
+            [_proxy stop];
+        }
+        [self updateToggleState];
+    }];
+    [self updateToggleState];
+    NSLog(@"start");
 }
-
+- (void)updateToggleState {
+    self.switchButton.on = _client.connected ? UIControlStateSelected : UIControlStateNormal;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
