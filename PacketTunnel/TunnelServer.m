@@ -82,7 +82,7 @@
         }
         
         delay(1, ^{
-            [self test2];
+            [self test];
         });
         return callback(error);
     }];
@@ -98,10 +98,8 @@
     NSLog(@"%s", __FUNCTION__);
 
     NWEndpoint *endpoint = [NWHostEndpoint endpointWithHostname:@"115.239.210.27" port:@"88"];
-    [_provider createTCPConnectionThroughTunnelToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
-//    NWTCPConnection *connection = [_provider createTCPConnectionToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
-    
-    
+//    [_provider createTCPConnectionThroughTunnelToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
+    NWTCPConnection *connection = [_provider createTCPConnectionToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
 }
 
 - (void)stop {
