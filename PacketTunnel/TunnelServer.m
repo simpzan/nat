@@ -82,16 +82,10 @@
         }
         
         delay(1, ^{
-            [self test];
+            test(routedIp);
         });
         return callback(error);
     }];
-}
-
-- (void)test {
-    NSError *err = nil;
-    NSString *response =  [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://115.239.210.27"] encoding:NSUTF8StringEncoding error:&err];
-    NSLog(@"response %@, %@", response, err);
 }
 
 - (void)test2 {

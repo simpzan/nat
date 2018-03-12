@@ -41,6 +41,9 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
     [_client monitorState:^(BOOL state) {
         if (state) {
             [_proxy startWithAddress:proxyIp port:appProxyPort];
+            delay(3, ^{
+                test(routedIp);
+            });
         } else {
             [_proxy stop];
         }

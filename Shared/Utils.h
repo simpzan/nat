@@ -16,6 +16,7 @@ uint16_t getPort(const void *data);
 void setPort(void *data, uint16_t port);
 
 void delay(double delayInSeconds, void(^callback)(void));
+void test(NSString *ip);
 
 @interface NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block;
