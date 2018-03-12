@@ -10,7 +10,7 @@
 
 @interface ProxyServer : NSObject
 
-- (BOOL)startWithAddress:(NSString *)address port:(uint16)port;
+- (BOOL)startWithAddress:(NSString *)address port:(uint16_t)port;
 - (BOOL)stop;
 
 @end

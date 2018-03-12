@@ -22,7 +22,7 @@
     [newSocket writeData:[reply dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:3];
 }
 
-- (BOOL)startWithAddress:(NSString *)address port:(uint16)port {
+- (BOOL)startWithAddress:(NSString *)address port:(uint16_t)port {
     _socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue() socketQueue:nil];
     NSError *err = nil;
     [_socket acceptOnInterface:address port:port error:&err];

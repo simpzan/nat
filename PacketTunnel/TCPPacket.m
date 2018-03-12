@@ -32,7 +32,7 @@
 - (uint16_t)sourcePort {
     return getPort(_bytes + _ipHeaderSize);
 }
-- (void)setSourcePort:(uint16)sourcePort {
+- (void)setSourcePort:(uint16_t)sourcePort {
     void *data = [_data mutableBytes] + _ipHeaderSize;
     setPort(data, sourcePort);
 }
@@ -40,7 +40,7 @@
 - (uint16_t)destinationPort {
     return getPort(_bytes + _ipHeaderSize + 2);
 }
-- (void)setDestinationPort:(uint16)destinationPort {
+- (void)setDestinationPort:(uint16_t)destinationPort {
     void *data = [_data mutableBytes] + _ipHeaderSize + 2;
     setPort(data, destinationPort);
 }
