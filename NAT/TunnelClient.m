@@ -16,7 +16,7 @@
 }
 @end
 
-static NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
+extern NSString *providerBundleIdentifier;
 
 @implementation TunnelClient
 

@@ -12,6 +12,8 @@
 #import "Utils.h"
 #import "Config.h"
 
+NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
+
 @interface AppDelegate () {
     TunnelClient *_client;
     ProxyServer *_proxy;
