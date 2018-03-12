@@ -9,11 +9,14 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 @end
 
 @implementation ViewController
-
+- (IBAction)toggleSwitch:(id)sender {
+    NSLog(@"toggle");
+}
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
