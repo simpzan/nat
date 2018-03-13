@@ -20,6 +20,10 @@
 		76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
+		7650DF702057E20E00ED4F0A /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7650DF6F2057E20E00ED4F0A /* MMWormhole.framework */; };
+		7650DF722057E21900ED4F0A /* MMWormhole.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7650DF712057E21900ED4F0A /* MMWormhole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7650DF742057E22800ED4F0A /* MMWormhole.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7650DF732057E22800ED4F0A /* MMWormhole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7650DF752057E22D00ED4F0A /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7650DF732057E22800ED4F0A /* MMWormhole.framework */; };
 		769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA56A12056B75B00B80C07 /* AppDelegate.m */; };
 		76AA56A52056B75B00B80C07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA56A42056B75B00B80C07 /* ViewController.m */; };
@@ -87,6 +91,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */,
+				7650DF722057E21900ED4F0A /* MMWormhole.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +113,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				76AA56D22056B93900B80C07 /* CocoaAsyncSocket.framework in CopyFiles */,
+				7650DF742057E22800ED4F0A /* MMWormhole.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +143,9 @@
 		76382FB2204D5D6000C76F45 /* ProxyServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyServer.m; sourceTree = "<group>"; };
 		76382FB6204D68AE00C76F45 /* TCPPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPPacket.h; sourceTree = "<group>"; };
 		76382FB7204D68AE00C76F45 /* TCPPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPPacket.m; sourceTree = "<group>"; };
+		7650DF6F2057E20E00ED4F0A /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMWormhole.framework; path = Carthage/Build/Mac/MMWormhole.framework; sourceTree = "<group>"; };
+		7650DF712057E21900ED4F0A /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMWormhole.framework; path = Carthage/Build/Mac/MMWormhole.framework; sourceTree = "<group>"; };
+		7650DF732057E22800ED4F0A /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMWormhole.framework; path = Carthage/Build/iOS/MMWormhole.framework; sourceTree = "<group>"; };
 		76AA569E2056B75B00B80C07 /* NAT-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAT-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AA56A02056B75B00B80C07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		76AA56A12056B75B00B80C07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -170,6 +179,7 @@
 			files = (
 				76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */,
 				769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */,
+				7650DF702057E20E00ED4F0A /* MMWormhole.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76AA56CF2056B91D00B80C07 /* CocoaAsyncSocket.framework in Frameworks */,
+				7650DF752057E22D00ED4F0A /* MMWormhole.framework in Frameworks */,
 				76AA56D82056BCA800B80C07 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +217,6 @@
 		76382F4B204CEC5500C76F45 = {
 			isa = PBXGroup;
 			children = (
-				76AA56D12056B93900B80C07 /* CocoaAsyncSocket.framework */,
 				76B4DC422050150A00A0B19C /* Shared */,
 				76382F56204CEC5500C76F45 /* NAT */,
 				76AA569F2056B75B00B80C07 /* NAT-iOS */,
@@ -266,7 +276,11 @@
 		76382F9F204D236300C76F45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7650DF712057E21900ED4F0A /* MMWormhole.framework */,
+				7650DF6F2057E20E00ED4F0A /* MMWormhole.framework */,
+				76AA56D12056B93900B80C07 /* CocoaAsyncSocket.framework */,
 				76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */,
+				7650DF732057E22800ED4F0A /* MMWormhole.framework */,
 				76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */,
 				76AA56CD2056B90F00B80C07 /* CocoaAsyncSocket.framework */,
 				76382FA5204D27B300C76F45 /* NetworkExtension.framework */,
@@ -402,6 +416,9 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -417,6 +434,9 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
 							com.apple.NetworkExtensions = {
 								enabled = 1;
 							};

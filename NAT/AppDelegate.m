@@ -6,6 +6,7 @@
 //  Copyright © 2018 simpzan. All rights reserved.
 //
 
+#import <MMWormhole/MMWormhole.h>
 #import "AppDelegate.h"
 #import "TunnelClient.h"
 #import "ProxyServer.h"
@@ -17,6 +18,7 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
 @interface AppDelegate () {
     TunnelClient *_client;
     ProxyServer *_proxy;
+    MMWormhole *_hole;
 }
 
 @property (weak) IBOutlet NSButtonCell *toggleSwitch;
@@ -30,6 +32,7 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
     // Insert code here to initialize your application
     _client = [[TunnelClient alloc]init];
     _proxy = [[ProxyServer alloc]init];
+    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getContainingAppId() optionalDirectory:@"hole"];
 
     [_client start];
     [_client monitorState:^(BOOL state) {
@@ -63,9 +66,11 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
 }
 - (IBAction)extensionTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
+    [_hole passMessageObject:@"extension" identifier:@"test"];
 }
 - (IBAction)containingAppTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
+    test(routedIp);
 }
 - (void)updateToggleState {
     self.toggleSwitch.state = _client.connected ? NSControlStateValueOn : NSControlStateValueOff;

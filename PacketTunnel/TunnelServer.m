@@ -40,7 +40,7 @@
     
     NEIPv4Route *defaultRoute = [NEIPv4Route defaultRoute];
     NEIPv4Settings *v4 = [[NEIPv4Settings alloc]initWithAddresses:@[interfaceIp] subnetMasks:@[netMask]];
-    v4.includedRoutes = @[defaultRoute];
+    v4.includedRoutes = @[route];
     v4.excludedRoutes = @[dnsRoute];
 
     NEPacketTunnelNetworkSettings *settings = [[NEPacketTunnelNetworkSettings alloc]initWithTunnelRemoteAddress:remoteIp];
@@ -69,7 +69,6 @@
 }
 - (void)start:(NEPacketTunnelProvider *)provider :(Callback)callback {
     NSLog(@"%s", __FUNCTION__);
-//    [self test];
     
     _proxy = [[ProxyServer alloc]init];
     _provider = provider;
@@ -80,10 +79,6 @@
             [_proxy startWithAddress:proxyIp port:extensionProxyPort];
             [self readPackets:provider.packetFlow];
         }
-        
-        delay(1, ^{
-            test(routedIp);
-        });
         return callback(error);
     }];
 }
