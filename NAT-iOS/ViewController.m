@@ -60,6 +60,12 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)containingAppTest:(id)sender {
+    NSLog(@"%s", __FUNCTION__);
+}
+- (IBAction)extensionTest:(id)sender {
+    NSLog(@"%s", __FUNCTION__);
+}
 
 
 @end
