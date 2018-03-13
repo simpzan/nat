@@ -61,6 +61,12 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
         [_client start];
     }
 }
+- (IBAction)extensionTest:(id)sender {
+    NSLog(@"%s", __FUNCTION__);
+}
+- (IBAction)containingAppTest:(id)sender {
+    NSLog(@"%s", __FUNCTION__);
+}
 - (void)updateToggleState {
     self.toggleSwitch.state = _client.connected ? NSControlStateValueOn : NSControlStateValueOff;
 }
