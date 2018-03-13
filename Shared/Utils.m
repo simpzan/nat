@@ -51,6 +51,15 @@ void test(NSString *ip) {
     NSLog(@"response %@, %@", response, err);
 }
 
+NSString *getContainingAppId() {
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *bundleId = bundle.bundleIdentifier;
+    if (bundle.infoDictionary[@"NSExtension"]) {
+        bundleId = [bundleId stringByDeletingPathExtension];
+    }
+    return bundleId;
+}
+
 @implementation NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];

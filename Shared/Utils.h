@@ -18,6 +18,8 @@ void setPort(void *data, uint16_t port);
 void delay(double delayInSeconds, void(^callback)(void));
 void test(NSString *ip);
 
+NSString *getContainingAppId();
+
 @interface NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block;
 - (id)findFirstObjectUsingBlock:(BOOL (^)(id obj, NSUInteger idx))predicate;
