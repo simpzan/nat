@@ -60,6 +60,11 @@ NSString *getContainingAppId() {
     return bundleId;
 }
 
+NSString *getSharedAppGroupId() {
+    NSString *bundleId = getContainingAppId();
+    return [@"group." stringByAppendingString:bundleId];
+}
+
 @implementation NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];

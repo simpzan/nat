@@ -19,6 +19,7 @@ void delay(double delayInSeconds, void(^callback)(void));
 void test(NSString *ip);
 
 NSString *getContainingAppId();
+NSString *getSharedAppGroupId();
 
 @interface NSArray(Functional)
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block;

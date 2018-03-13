@@ -6,6 +6,7 @@
 //  Copyright © 2018 simpzan. All rights reserved.
 //
 
+#import <MMWormhole/MMWormhole.h>
 #import "ViewController.h"
 #import "TunnelClient.h"
 #import "ProxyServer.h"
@@ -17,6 +18,8 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 @interface ViewController () {
     TunnelClient *_client;
     ProxyServer *_proxy;
+    MMWormhole *_hole;
+
 }
 @property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 @end
@@ -36,14 +39,12 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
     [super viewDidLoad];
     _client = [[TunnelClient alloc]init];
     _proxy = [[ProxyServer alloc]init];
-    
+    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getSharedAppGroupId() optionalDirectory:@"hole"];
+
     [_client start];
     [_client monitorState:^(BOOL state) {
         if (state) {
             [_proxy startWithAddress:proxyIp port:appProxyPort];
-            delay(3, ^{
-                test(routedIp);
-            });
         } else {
             [_proxy stop];
         }
@@ -62,9 +63,11 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 }
 - (IBAction)containingAppTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
+    test(routedIp);
 }
 - (IBAction)extensionTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
+    [_hole passMessageObject:@"extension" identifier:@"test"];
 }
 
 

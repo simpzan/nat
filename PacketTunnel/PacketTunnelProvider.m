@@ -23,7 +23,7 @@
 - (void)startTunnelWithOptions:(NSDictionary *)options completionHandler:(void (^)(NSError *))completionHandler {
 	// Add code here to start the process of connecting the tunnel.
     NSLog(@"%s", __FUNCTION__);
-    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getContainingAppId() optionalDirectory:@"hole"];
+    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getSharedAppGroupId() optionalDirectory:@"hole"];
     [_hole listenForMessageWithIdentifier:@"test" listener:^(NSString * _Nullable messageObject) {
         NSLog(@"obj %@", messageObject);
         if ([messageObject isEqualToString:@"extension"]) {
