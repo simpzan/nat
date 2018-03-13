@@ -32,7 +32,7 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
     // Insert code here to initialize your application
     _client = [[TunnelClient alloc]init];
     _proxy = [[ProxyServer alloc]init];
-    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getContainingAppId() optionalDirectory:@"hole"];
+    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getSharedAppGroupId() optionalDirectory:@"hole"];
 
     [_client start];
     [_client monitorState:^(BOOL state) {
