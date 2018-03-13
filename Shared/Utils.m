@@ -44,7 +44,7 @@ void delay(double delayInSeconds, void(^callback)(void)){
 }
 
 void test(NSString *ip) {
-    NSLog(@"%s %s", __FUNCTION__, ip);
+    NSLog(@"%s %@", __FUNCTION__, ip);
     NSString *url = [[NSString alloc]initWithFormat:@"http://%@", ip];
     NSError *err = nil;
     NSString *response =  [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&err];
