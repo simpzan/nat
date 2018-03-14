@@ -2,7 +2,7 @@ an iOS and macOS project used to explore packet routing and NAT implementation i
 
 ## how to run it
 - run `carthage bootstrap  --no-use-binaries --cache-builds --platform mac` first,
-- when open Xcode to compile and run the `NAT-iOS` app.
+- open Xcode and compile/run the `NAT-iOS` target.
 
 ## environment
 - MacBook Pro (Retina, 15-inch, Mid 2015), macOS 10.12.6 (16G1114)
@@ -15,7 +15,7 @@ an iOS and macOS project used to explore packet routing and NAT implementation i
 - tcp server `10.25.1.1:12344` running in tunnel process;
 
 ## what I am trying to implement or what I expect.
-I am implementing a ip packet to socket byte array feature using NAT method. the same [feature] is implemented in [fqrouter] on Androd. so I hope this feature can be implemented on iOS and macOS.
+I am implementing an ip packet to socket byte array feature using NAT method. this [feature](http://fqrouter.tumblr.com/post/51474945203/socks%E4%BB%A3%E7%90%86%E8%BD%ACvpn) is implemented in [fqrouter](https://github.com/fqrouter/fqrouter) on Androd. so I hope this feature can be implemented on iOS and macOS as well.
 
 the following is the expected data flow in detail.
 - browser visit a page, eg. `115.239.210.27`, the request goes to tun device.
@@ -29,7 +29,3 @@ the following is the expected data flow in detail.
 1. tun **didn't** recieve the request packet according to the log. also browser can't open the page at `115.239.210.27`.
 2. I make a tcp connect to `115.239.210.27:80` using `createTCPConnectionThroughTunnelToEndpoint` api, tun receive the packets and I NAT them to `10.25.1.1:12344` and send back to tun device, the tcp server listening at `10.25.1.1:12344` in PacketTunnel process **didn't** receive the new connection request. but if I NAT the packets to `10.25.1.1:12345`, and send it back to tun, the tcp server in containing app process **did** receive the packet. change `proxyServerPort` in `NAT.m` to `appProxyPort` to see this behavior.
 3. I run the same code in macOS, the 2 issues are reproduced and found another 1 issue. request packets from both `createTCPConnectionToEndpoint` and `stringWithContentsOfURL` apis in PacketTunnel process go to tun device. this behavior causes packets go through tun device infinitely.
-
-
-[fqrouter](https://github.com/fqrouter/fqrouter)
-[feature](http://fqrouter.tumblr.com/post/51474945203/socks%E4%BB%A3%E7%90%86%E8%BD%ACvpn)
