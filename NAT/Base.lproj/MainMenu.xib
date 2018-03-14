@@ -703,7 +703,7 @@
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-C6-XGI">
-                        <rect key="frame" x="23" y="153" width="211" height="32"/>
+                        <rect key="frame" x="14" y="153" width="211" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="request from containing app" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OEw-D0-61W">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -714,14 +714,25 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HR0-3m-BQS">
-                        <rect key="frame" x="23" y="120" width="180" height="32"/>
+                        <rect key="frame" x="14" y="120" width="387" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="request from extension" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qhG-xN-gdc">
+                        <buttonCell key="cell" type="push" title="request from extension, createTCPConnectionToEndpoint" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qhG-xN-gdc">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="extensionTest:" target="Voe-Tx-rLC" id="wc9-Lf-gtO"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVa-DS-YxA">
+                        <rect key="frame" x="14" y="87" width="477" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="request from extension, createTCPConnectionThroughTunnelToEndpoint" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9oY-dm-bnU">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="extensionTest2:" target="Voe-Tx-rLC" id="aLP-hJ-jcC"/>
                         </connections>
                     </button>
                 </subviews>

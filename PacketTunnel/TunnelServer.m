@@ -83,12 +83,18 @@
     }];
 }
 
-- (void)test2 {
+- (void)testTcpConnectionThroughTunnel {
     NSLog(@"%s", __FUNCTION__);
 
-    NWEndpoint *endpoint = [NWHostEndpoint endpointWithHostname:@"115.239.210.27" port:@"88"];
-//    [_provider createTCPConnectionThroughTunnelToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
-    NWTCPConnection *connection = [_provider createTCPConnectionToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
+    NWEndpoint *endpoint = [NWHostEndpoint endpointWithHostname:@"115.239.210.27" port:@"80"];
+    NWTCPConnection *connection = [_provider createTCPConnectionThroughTunnelToEndpoint:endpoint enableTLS:NO TLSParameters:nil delegate:nil];
+    [connection readMinimumLength:0 maximumLength:1024 completionHandler:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            return NSLog(@"error %@", error);
+        }
+        NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"output %@", output);
+    }];
 }
 
 - (void)stop {

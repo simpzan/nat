@@ -15,5 +15,6 @@ typedef void (^Callback)(NSError *error);
 
 - (void)start:(NEPacketTunnelProvider *)provider :(Callback)callback;
 - (void)stop;
+- (void)testTcpConnectionThroughTunnel;
 
 @end

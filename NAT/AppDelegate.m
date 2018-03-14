@@ -68,6 +68,10 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT.PacketTunnel";
     NSLog(@"%s", __FUNCTION__);
     [_hole passMessageObject:@"extension" identifier:@"test"];
 }
+- (IBAction)extensionTest2:(id)sender {
+    NSLog(@"%s", __FUNCTION__);
+    [_hole passMessageObject:@"extension.createTCPConnectionThroughTunnelToEndpoint" identifier:@"test"];
+}
 - (IBAction)containingAppTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
     test(routedIp);

@@ -28,6 +28,8 @@
         NSLog(@"obj %@", messageObject);
         if ([messageObject isEqualToString:@"extension"]) {
             test(routedIp);
+        } else if ([messageObject isEqualToString:@"extension.createTCPConnectionThroughTunnelToEndpoint"]) {
+            [_server testTcpConnectionThroughTunnel];
         }
     }];
     _server = [[TunnelServer alloc]init];
