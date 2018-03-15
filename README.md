@@ -1,7 +1,7 @@
 an iOS and macOS project used to explore packet routing and NAT implementation in PacketTunnel.
 
 ## how to run it
-- run `carthage bootstrap --no-use-binaries --cache-builds --platform mac,ios` first,
+- run `carthage bootstrap --no-use-binaries --cache-builds --platform mac,ios` to download and build dependencies,
 - open Xcode and compile/run the `NAT-iOS` target.
 
 ## environment
@@ -27,9 +27,9 @@ the following is the expected data flow in detail.
 - response packet `10.25.1.1:12344 -> 10.25.1.100:54263` read from tun device, change it back to `115.239.210.27:80 -> 10.25.1.1:54263`, send it back to tun device.
 - browser process will receive the response data.
 
-## what I actually happened.
-1. tun **didn't** recieve the request packet according to the log. 
-click `ContainingAppTest` button to test this behavior. 
+## what actually happened or what the issues are.
+1. tun **didn't** recieve the request packet according to the log.
+click `ContainingAppTest` button to test this behavior.
 2. I make a tcp connect to `115.239.210.27:80` using `createTCPConnectionThroughTunnelToEndpoint` api, tun receive the packets and I NAT them to `10.25.1.1:12344` and send back to tun device, the tcp server listening at `10.25.1.1:12344` in PacketTunnel process **didn't** receive the new connection request.
 click `ExtensionTest.ThroughTunnelToEndpoint` button to test this behavior. the following is the log from iPhone X.
 ```
