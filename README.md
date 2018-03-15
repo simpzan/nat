@@ -64,7 +64,7 @@ NAT2app.log:2304:Mar 14 22:13:26 simpzans-iPhone PacketTunnel-iOS[709] <Notice>:
 NAT2app.log:2305:Mar 14 22:13:26 simpzans-iPhone PacketTunnel-iOS[709] <Notice>: out 10.25.1.100:52135 -> 10.25.1.1:12345
 NAT2app.log:2306:Mar 14 22:13:26 simpzans-iPhone PacketTunnel-iOS[709] <Notice>: in 10.25.1.1:52135 -> 115.239.210.27:80
 ```
-3. I run the same code in macOS, the 2 issues are reproduced and found another 1 issue. request packets from both `createTCPConnectionToEndpoint` and `stringWithContentsOfURL` apis in PacketTunnel process go to tun device. this behavior causes packets go through tun device infinitely.
+3. I run the same code in macOS, the 2 issues are reproduced and found another 1 issue. request packets from both `createTCPConnectionToEndpoint` and `stringWithContentsOfURL` apis in PacketTunnel process go to tun device. this behavior causes packets go through tun device infinitely. run `NAT` target to test these behaviors on macOS.
 
 ## debug support files
 - `NAT2extension.iphonex.log` file in `DebugSupport` dir is the log from iPhone X, NAT to tcp server in PacketTunnel process.
