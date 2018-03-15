@@ -1,7 +1,7 @@
 an iOS and macOS project used to explore packet routing and NAT implementation in PacketTunnel.
 
 ## how to run it
-- run `carthage bootstrap  --no-use-binaries --cache-builds --platform mac` first,
+- run `carthage bootstrap --no-use-binaries --cache-builds --platform mac,ios` first,
 - open Xcode and compile/run the `NAT-iOS` target.
 
 ## environment
