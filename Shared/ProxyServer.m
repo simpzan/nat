@@ -7,7 +7,7 @@
 //
 
 #import "ProxyServer.h"
-#import <CocoaAsyncSocket/CocoaAsyncSocket.h>
+#import "GCDAsyncSocket.h"
 
 @interface ProxyServer() <GCDAsyncSocketDelegate> {
     GCDAsyncSocket *_socket;

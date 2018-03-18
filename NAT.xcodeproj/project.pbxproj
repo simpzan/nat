@@ -16,9 +16,7 @@
 		76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FA8204D2AA100C76F45 /* TunnelClient.m */; };
 		76382FAD204D405400C76F45 /* TunnelServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FAC204D405400C76F45 /* TunnelServer.m */; };
-		76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; };
 		76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
-		76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
 		769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA56A12056B75B00B80C07 /* AppDelegate.m */; };
@@ -35,19 +33,19 @@
 		76AA56CA2056B87800B80C07 /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
 		76AA56CB2056B88000B80C07 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76AA56CC2056B88000B80C07 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
-		76AA56CE2056B90F00B80C07 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA56CD2056B90F00B80C07 /* CocoaAsyncSocket.framework */; };
-		76AA56CF2056B91D00B80C07 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA56CD2056B90F00B80C07 /* CocoaAsyncSocket.framework */; };
-		76AA56D22056B93900B80C07 /* CocoaAsyncSocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76AA56D12056B93900B80C07 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76AA56D32056B9A800B80C07 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76AA56D42056B9A800B80C07 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76AA56D52056B9A800B80C07 /* TunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FA8204D2AA100C76F45 /* TunnelClient.m */; };
 		76AA56D72056BC9A00B80C07 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */; };
 		76AA56D82056BCA800B80C07 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */; };
+		76B06B41205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
+		76B06B42205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
+		76B06B43205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
+		76B06B44205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
 		76B4DC40204F874800A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76B4DC4120500FB200A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76CB686C20553E8900A4CA19 /* NAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CB686B20553E8900A4CA19 /* NAT.m */; };
 		76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
-		76D0A6C8205149AD0074BFC0 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FAF204D5BDE00C76F45 /* CocoaAsyncSocket.framework */; };
 		76E2AD3120513ABB0034713E /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
 /* End PBXBuildFile section */
 
@@ -86,7 +84,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				76382FB5204D615300C76F45 /* CocoaAsyncSocket.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +104,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				76AA56D22056B93900B80C07 /* CocoaAsyncSocket.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +150,8 @@
 		76AA56D12056B93900B80C07 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		76AA56D92056BCA800B80C07 /* NAT-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NAT-iOS.entitlements"; sourceTree = "<group>"; };
+		76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Carthage/Checkouts/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
+		76B06B40205E8915007D6902 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Carthage/Checkouts/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		76B4DC3E204F874800A0B19C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		76B4DC3F204F874800A0B19C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		76CB686A20553E8900A4CA19 /* NAT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAT.h; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76382FB0204D5BDE00C76F45 /* CocoaAsyncSocket.framework in Frameworks */,
 				769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,7 +175,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76382FA6204D27B300C76F45 /* NetworkExtension.framework in Frameworks */,
-				76D0A6C8205149AD0074BFC0 /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76AA56CF2056B91D00B80C07 /* CocoaAsyncSocket.framework in Frameworks */,
 				76AA56D82056BCA800B80C07 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +190,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76AA56CE2056B90F00B80C07 /* CocoaAsyncSocket.framework in Frameworks */,
 				76AA56D72056BC9A00B80C07 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +297,8 @@
 		76B4DC422050150A00A0B19C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				76B06B40205E8915007D6902 /* GCDAsyncSocket.h */,
+				76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */,
 				76B4DC3E204F874800A0B19C /* Utils.h */,
 				76B4DC3F204F874800A0B19C /* Utils.m */,
 				76382FB1204D5D6000C76F45 /* ProxyServer.h */,
@@ -519,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B06B41205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
 				76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */,
 				76382F61204CEC5500C76F45 /* main.m in Sources */,
@@ -531,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B06B42205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
@@ -550,6 +548,7 @@
 				76AA56D52056B9A800B80C07 /* TunnelClient.m in Sources */,
 				76AA56A52056B75B00B80C07 /* ViewController.m in Sources */,
 				76AA56B02056B75B00B80C07 /* main.m in Sources */,
+				76B06B43205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B06B44205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56C62056B86900B80C07 /* PacketTunnelProvider.m in Sources */,
 				76AA56C72056B86C00B80C07 /* TunnelServer.m in Sources */,
 				76AA56C82056B87800B80C07 /* NAT.m in Sources */,
@@ -722,10 +722,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = NAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT;
@@ -741,10 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = NAT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT;
@@ -758,10 +752,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT.PacketTunnel;
@@ -776,10 +767,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simpzan.NAT.PacketTunnel;
@@ -796,10 +784,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "NAT-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -818,10 +803,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "NAT-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -840,10 +822,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PacketTunnel-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -862,10 +841,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL5MM59PQ7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PacketTunnel-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
