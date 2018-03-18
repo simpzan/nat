@@ -109,4 +109,12 @@ typedef void (^ManagerCallback)(NETunnelProviderManager *__nullable manager);
     }
 }
 
+- (void)sendMessage:(NSString *)message {
+    NETunnelProviderSession *session = (NETunnelProviderSession *)_manager.connection;
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    [session sendProviderMessage:data returnError:nil responseHandler:^(NSData * _Nullable responseData) {
+        NSLog(@"reponse %@", responseData);
+    }];
+}
+
 @end

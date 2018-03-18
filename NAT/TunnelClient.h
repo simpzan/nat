@@ -17,4 +17,6 @@
 typedef void (^StateChangeCallback)(BOOL state);
 - (void)monitorState:(StateChangeCallback)callback;
 
+- (void)sendMessage:(NSString *)message;
+
 @end

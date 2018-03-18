@@ -6,7 +6,6 @@
 //  Copyright © 2018 simpzan. All rights reserved.
 //
 
-#import <MMWormhole/MMWormhole.h>
 #import "PacketTunnelProvider.h"
 #import "TunnelServer.h"
 #import "Utils.h"
@@ -14,7 +13,6 @@
 
 @interface PacketTunnelProvider() {
     TunnelServer *_server;
-    MMWormhole *_hole;
 }
 @end
 
@@ -23,15 +21,6 @@
 - (void)startTunnelWithOptions:(NSDictionary *)options completionHandler:(void (^)(NSError *))completionHandler {
 	// Add code here to start the process of connecting the tunnel.
     NSLog(@"%s", __FUNCTION__);
-    _hole = [[MMWormhole alloc]initWithApplicationGroupIdentifier:getSharedAppGroupId() optionalDirectory:@"hole"];
-    [_hole listenForMessageWithIdentifier:@"test" listener:^(NSString * _Nullable messageObject) {
-        NSLog(@"obj %@", messageObject);
-        if ([messageObject isEqualToString:@"extension"]) {
-            test(routedIp);
-        } else if ([messageObject isEqualToString:@"extension.createTCPConnectionThroughTunnelToEndpoint"]) {
-            [_server testTcpConnectionThroughTunnel];
-        }
-    }];
     _server = [[TunnelServer alloc]init];
     [_server start:self :completionHandler];
 }
@@ -46,6 +35,14 @@
 
 - (void)handleAppMessage:(NSData *)messageData completionHandler:(void (^)(NSData *))completionHandler {
 	// Add code here to handle the message.
+    NSString *message = [[NSString alloc] initWithData:messageData encoding:NSUTF8StringEncoding];
+    NSLog(@"received message %@", message);
+    if ([message isEqualToString:@"extension.createTCPConnectionThroughTunnelToEndpoint"]) {
+        [_server testTcpConnectionThroughTunnel];
+    } else {
+        test(routedIp);
+    }
+    completionHandler(nil);
 }
 
 - (void)sleepWithCompletionHandler:(void (^)(void))completionHandler {
