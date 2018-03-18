@@ -10,6 +10,8 @@
 
 #import "GCDAsyncSocket.h"
 
+#import "Utils.h"
+
 #if TARGET_OS_IPHONE
 #import <CFNetwork/CFNetwork.h>
 #endif
@@ -1487,7 +1489,8 @@ enum GCDAsyncSocketConfig
 		}
 		
 		// Bind socket
-		
+        boundInterface(socketFD, inInterface);
+        
 		status = bind(socketFD, (const struct sockaddr *)[interfaceAddr bytes], (socklen_t)[interfaceAddr length]);
 		if (status == -1)
 		{

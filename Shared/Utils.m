@@ -6,8 +6,56 @@
 //  Copyright © 2018 simpzan. All rights reserved.
 //
 
+#import <ifaddrs.h>
+#import <net/if.h>
+#import <arpa/inet.h>
 #import "Utils.h"
 
+NSString *getIfName(NSString *ip) {
+    struct ifaddrs *interfaces = NULL;
+    NSInteger result = getifaddrs(&interfaces);
+    if (result != 0) {
+        NSLog(@"getifaddrs error, %s", strerror(errno));
+        return NULL;
+    }
+    
+    NSString *ifName = NULL;
+    for (struct ifaddrs *itr = interfaces; itr; itr = itr->ifa_next) {
+        if (itr->ifa_addr->sa_family != AF_INET) continue;
+        
+        NSString* ifaName = [NSString stringWithUTF8String:itr->ifa_name];
+        NSString* address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *) itr->ifa_addr)->sin_addr)];
+//        NSString* mask = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *) itr->ifa_netmask)->sin_addr)];
+//        NSString* gateway = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *) itr->ifa_dstaddr)->sin_addr)];
+//        NSLog(@"%@;%@;%@;%@",ifaName,address,mask,gateway);
+        if ([address isEqualToString:ip]) {
+            ifName = ifaName;
+            break;
+        }
+    }
+    freeifaddrs(interfaces);
+    return ifName;
+}
+int boundInterface(int socket, NSString *address) {
+    NSString *name = getIfName(address);
+    if (!name) {
+        return -1;
+    }
+    
+    int ifIndex = if_nametoindex([name cStringUsingEncoding:NSUTF8StringEncoding]);
+    if (ifIndex == 0) {
+        NSLog(@"if_nametoindex error, %s", strerror(errno));
+        return -1;
+    }
+
+    int status = setsockopt(socket, IPPROTO_IP, IP_BOUND_IF, &ifIndex, sizeof(ifIndex));
+    if (status == -1) {
+        NSLog(@"setsockopt IP_BOUND_IF error, %s", strerror(errno));
+        return -1;
+    }
+    NSLog(@"set IP_BOUND_IF ok");
+    return 0;
+}
 NSString *getAddress(const void *data) {
     char str[128] = {0};
     const char *result = inet_ntop(AF_INET, data, str, sizeof(str));

@@ -6,8 +6,9 @@
 //  Copyright © 2018 simpzan. All rights reserved.
 //
 
-#include <arpa/inet.h>
 #import <Foundation/Foundation.h>
+
+int boundInterface(int socket, NSString *address);
 
 NSString *getAddress(const void *data);
 void setAddress(void *data, NSString *address);
