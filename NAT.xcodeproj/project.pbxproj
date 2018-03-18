@@ -38,10 +38,10 @@
 		76AA56D52056B9A800B80C07 /* TunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FA8204D2AA100C76F45 /* TunnelClient.m */; };
 		76AA56D72056BC9A00B80C07 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */; };
 		76AA56D82056BCA800B80C07 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */; };
-		76B06B41205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
-		76B06B42205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
-		76B06B43205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
-		76B06B44205E8916007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */; };
+		76B06B47205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B45205E8B7A007D6902 /* GCDAsyncSocket.m */; };
+		76B06B48205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B45205E8B7A007D6902 /* GCDAsyncSocket.m */; };
+		76B06B49205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B45205E8B7A007D6902 /* GCDAsyncSocket.m */; };
+		76B06B4A205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B45205E8B7A007D6902 /* GCDAsyncSocket.m */; };
 		76B4DC40204F874800A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76B4DC4120500FB200A0B19C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B4DC3F204F874800A0B19C /* Utils.m */; };
 		76CB686C20553E8900A4CA19 /* NAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CB686B20553E8900A4CA19 /* NAT.m */; };
@@ -150,8 +150,8 @@
 		76AA56D12056B93900B80C07 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		76AA56D62056BC9A00B80C07 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		76AA56D92056BCA800B80C07 /* NAT-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NAT-iOS.entitlements"; sourceTree = "<group>"; };
-		76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Carthage/Checkouts/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
-		76B06B40205E8915007D6902 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Carthage/Checkouts/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
+		76B06B45205E8B7A007D6902 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		76B06B46205E8B7B007D6902 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		76B4DC3E204F874800A0B19C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		76B4DC3F204F874800A0B19C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		76CB686A20553E8900A4CA19 /* NAT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAT.h; sourceTree = "<group>"; };
@@ -297,8 +297,8 @@
 		76B4DC422050150A00A0B19C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				76B06B40205E8915007D6902 /* GCDAsyncSocket.h */,
-				76B06B3F205E8915007D6902 /* GCDAsyncSocket.m */,
+				76B06B46205E8B7B007D6902 /* GCDAsyncSocket.h */,
+				76B06B45205E8B7A007D6902 /* GCDAsyncSocket.m */,
 				76B4DC3E204F874800A0B19C /* Utils.h */,
 				76B4DC3F204F874800A0B19C /* Utils.m */,
 				76382FB1204D5D6000C76F45 /* ProxyServer.h */,
@@ -515,7 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B06B41205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
+				76B06B47205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
 				76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */,
 				76382F61204CEC5500C76F45 /* main.m in Sources */,
@@ -528,7 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B06B42205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
+				76B06B48205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
@@ -548,7 +548,7 @@
 				76AA56D52056B9A800B80C07 /* TunnelClient.m in Sources */,
 				76AA56A52056B75B00B80C07 /* ViewController.m in Sources */,
 				76AA56B02056B75B00B80C07 /* main.m in Sources */,
-				76B06B43205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
+				76B06B49205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,7 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B06B44205E8916007D6902 /* GCDAsyncSocket.m in Sources */,
+				76B06B4A205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56C62056B86900B80C07 /* PacketTunnelProvider.m in Sources */,
 				76AA56C72056B86C00B80C07 /* TunnelServer.m in Sources */,
 				76AA56C82056B87800B80C07 /* NAT.m in Sources */,
