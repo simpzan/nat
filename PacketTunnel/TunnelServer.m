@@ -38,7 +38,7 @@
     NEIPv4Route *route = [[NEIPv4Route alloc]initWithDestinationAddress:routedIp subnetMask:netMask];
     NEIPv4Route *dnsRoute = [[NEIPv4Route alloc]initWithDestinationAddress:dnsIp subnetMask:@"255.255.255.255"];
     
-    NEIPv4Route *defaultRoute = [NEIPv4Route defaultRoute];
+//    NEIPv4Route *defaultRoute = [NEIPv4Route defaultRoute];
     NEIPv4Settings *v4 = [[NEIPv4Settings alloc]initWithAddresses:@[interfaceIp] subnetMasks:@[netMask]];
     v4.includedRoutes = @[route];
     v4.excludedRoutes = @[dnsRoute];
@@ -77,7 +77,7 @@
             NSLog(@"setTunnelNetworkSettings error, %@", error);
         } else {
             [_proxy startWithAddress:proxyIp port:extensionProxyPort];
-            [self readPackets:provider.packetFlow];
+            [self readPackets:_provider.packetFlow];
         }
         return callback(error);
     }];
