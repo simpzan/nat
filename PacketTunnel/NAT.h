@@ -17,3 +17,7 @@
 + (NSData *)translatedPacket:(NSData *)data;
 
 @end
+
+NSData *translatedPacket(NSData *data);
+NSString *getOriginalHost(uint16_t sourcePort);
+uint16_t getOriginalPort(uint16_t sourcePort);

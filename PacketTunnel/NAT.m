@@ -9,6 +9,15 @@
 #import "NAT.h"
 #import "TCPPacket.h"
 
+
+NAT *instance() {
+    static NAT *nat = NULL;
+    if (nat == NULL) {
+        nat = [[NAT alloc]init];
+    }
+    return nat;
+}
+
 @implementation NAT
 
 - (instancetype)init {
@@ -21,11 +30,19 @@
 
 
 + (NSData *)translatedPacket:(NSData *)data {
-    static NAT *nat = NULL;
-    if (nat == NULL) {
-        nat = [[NAT alloc]init];
-    }
+    NAT *nat = instance();
     return [nat translatedPacket:data];
+}
+
+- (NSString *)getOriginalHost:(uint16_t)sourcePort {
+    NSNumber *destinationPort = @(sourcePort);
+    NSString *address = _map[destinationPort];
+    return address;
+}
+- (uint16_t)getOriginalPort:(uint16_t)sourcePort {
+    NSNumber *destinationPort = @(sourcePort);
+    uint16_t port = [_PortMap[destinationPort] unsignedShortValue];
+    return port;
 }
 
 - (NSData *)translatedPacket:(NSData *)data {
@@ -66,3 +83,14 @@
 }
 
 @end
+
+NSData *translatedPacket(NSData *data) {
+    return [instance() translatedPacket:data];
+}
+NSString *getOriginalHost(uint16_t sourcePort) {
+    return [instance() getOriginalHost:sourcePort];
+}
+uint16_t getOriginalPort(uint16_t sourcePort) {
+    return [instance() getOriginalPort:sourcePort];
+}
+
