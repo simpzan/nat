@@ -18,6 +18,16 @@
 		76382FAD204D405400C76F45 /* TunnelServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FAC204D405400C76F45 /* TunnelServer.m */; };
 		76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
+		7673EF0120628B7C00DE7E0D /* Tunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7673EF0020628B7C00DE7E0D /* Tunnel.m */; };
+		7673EF0220628B7C00DE7E0D /* Tunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7673EF0020628B7C00DE7E0D /* Tunnel.m */; };
+		7673EF0320628B7C00DE7E0D /* Tunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7673EF0020628B7C00DE7E0D /* Tunnel.m */; };
+		7673EF0420628B7C00DE7E0D /* Tunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7673EF0020628B7C00DE7E0D /* Tunnel.m */; };
+		7673EF052062924B00DE7E0D /* NAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CB686B20553E8900A4CA19 /* NAT.m */; };
+		7673EF062062924C00DE7E0D /* NAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CB686B20553E8900A4CA19 /* NAT.m */; };
+		7673EF072062925C00DE7E0D /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
+		7673EF082062925D00DE7E0D /* TCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB7204D68AE00C76F45 /* TCPPacket.m */; };
+		7673EF092062926300DE7E0D /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
+		7673EF0A2062926400DE7E0D /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
 		769A80492053E9A300D9C43E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76382FA5204D27B300C76F45 /* NetworkExtension.framework */; };
 		76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA56A12056B75B00B80C07 /* AppDelegate.m */; };
 		76AA56A52056B75B00B80C07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA56A42056B75B00B80C07 /* ViewController.m */; };
@@ -133,6 +143,8 @@
 		76382FB2204D5D6000C76F45 /* ProxyServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyServer.m; sourceTree = "<group>"; };
 		76382FB6204D68AE00C76F45 /* TCPPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPPacket.h; sourceTree = "<group>"; };
 		76382FB7204D68AE00C76F45 /* TCPPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPPacket.m; sourceTree = "<group>"; };
+		7673EEFF20628B7C00DE7E0D /* Tunnel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tunnel.h; sourceTree = "<group>"; };
+		7673EF0020628B7C00DE7E0D /* Tunnel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tunnel.m; sourceTree = "<group>"; };
 		76AA569E2056B75B00B80C07 /* NAT-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAT-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AA56A02056B75B00B80C07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		76AA56A12056B75B00B80C07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -303,6 +315,8 @@
 				76B4DC3F204F874800A0B19C /* Utils.m */,
 				76382FB1204D5D6000C76F45 /* ProxyServer.h */,
 				76382FB2204D5D6000C76F45 /* ProxyServer.m */,
+				7673EEFF20628B7C00DE7E0D /* Tunnel.h */,
+				7673EF0020628B7C00DE7E0D /* Tunnel.m */,
 				76D0A6C920514DFF0074BFC0 /* Config.h */,
 			);
 			path = Shared;
@@ -518,8 +532,12 @@
 				76B06B47205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
 				76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */,
+				7673EF052062924B00DE7E0D /* NAT.m in Sources */,
 				76382F61204CEC5500C76F45 /* main.m in Sources */,
+				7673EF072062925C00DE7E0D /* TCPPacket.m in Sources */,
 				76B4DC4120500FB200A0B19C /* Utils.m in Sources */,
+				7673EF0120628B7C00DE7E0D /* Tunnel.m in Sources */,
+				7673EF092062926300DE7E0D /* Checksum.m in Sources */,
 				76382F59204CEC5500C76F45 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +550,7 @@
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
+				7673EF0220628B7C00DE7E0D /* Tunnel.m in Sources */,
 				76CB686C20553E8900A4CA19 /* NAT.m in Sources */,
 				76382FB8204D68AE00C76F45 /* TCPPacket.m in Sources */,
 				76E2AD3120513ABB0034713E /* Checksum.m in Sources */,
@@ -544,12 +563,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				76AA56D32056B9A800B80C07 /* Utils.m in Sources */,
+				7673EF0320628B7C00DE7E0D /* Tunnel.m in Sources */,
 				76AA56D42056B9A800B80C07 /* ProxyServer.m in Sources */,
+				7673EF082062925D00DE7E0D /* TCPPacket.m in Sources */,
 				76AA56D52056B9A800B80C07 /* TunnelClient.m in Sources */,
 				76AA56A52056B75B00B80C07 /* ViewController.m in Sources */,
 				76AA56B02056B75B00B80C07 /* main.m in Sources */,
+				7673EF062062924C00DE7E0D /* NAT.m in Sources */,
 				76B06B49205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */,
+				7673EF0A2062926400DE7E0D /* Checksum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +584,7 @@
 				76AA56C62056B86900B80C07 /* PacketTunnelProvider.m in Sources */,
 				76AA56C72056B86C00B80C07 /* TunnelServer.m in Sources */,
 				76AA56C82056B87800B80C07 /* NAT.m in Sources */,
+				7673EF0420628B7C00DE7E0D /* Tunnel.m in Sources */,
 				76AA56C92056B87800B80C07 /* TCPPacket.m in Sources */,
 				76AA56CB2056B88000B80C07 /* Utils.m in Sources */,
 				76AA56CC2056B88000B80C07 /* ProxyServer.m in Sources */,
