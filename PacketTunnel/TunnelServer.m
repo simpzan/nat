@@ -47,7 +47,7 @@
     settings.MTU = [NSNumber numberWithInt:1500];
     settings.IPv4Settings = v4;
     settings.DNSSettings = [[NEDNSSettings alloc]initWithServers:@[dnsIp]];
-    settings.proxySettings = [self getProxySettings];
+//    settings.proxySettings = [self getProxySettings];
     return settings;
 }
 
