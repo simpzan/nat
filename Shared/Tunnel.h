@@ -11,7 +11,8 @@
 
 @interface Tunnel : NSObject
 
-- (instancetype)initWithSocket:(GCDAsyncSocket *)socket;
+typedef void (^Callback)(Tunnel *tunnel, NSError *error);
+- (instancetype)initWithSocket:(GCDAsyncSocket *)socket :(Callback)closeCallback;
 
 @end
 

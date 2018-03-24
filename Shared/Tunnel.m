@@ -12,16 +12,18 @@
 @interface Tunnel() <GCDAsyncSocketDelegate> {
     GCDAsyncSocket *_inSocket;
     GCDAsyncSocket *_outSocket;
-    NSData *_out;
-    NSData *_in;
+    Callback _closeCallback;
+    NSString *_inDescription;
+    NSString *_outDescription;
 }
 @end
 
 @implementation Tunnel
 
-- (instancetype)initWithSocket:(GCDAsyncSocket *)socket {
+- (instancetype)initWithSocket:(GCDAsyncSocket *)socket :(Callback)closeCallback {
     if (self = [super init]) {
         _inSocket = socket;
+        _closeCallback = closeCallback;
         [socket setDelegate:self delegateQueue:dispatch_get_main_queue()];
         [socket readDataWithTimeout:-1 tag:12];
 //        NSString *host = [socket connectedHost];
@@ -47,21 +49,23 @@
             thePort = 80;
         }
         NSLog(@"port %d, %@:%d", (int)port, host, (int)thePort);
+        _outDescription = [NSString stringWithFormat:@"%@:%u", host, thePort];
+        _inDescription = [NSString stringWithFormat:@"%@:%u", _inSocket.connectedHost, _inSocket.connectedPort];
         NSError *error;
         BOOL result = [_outSocket connectToHost:host onPort:thePort error:&error];
         if (!result) {
             NSLog(@"failed to connect to ,%@", error);
             return;
         }
-//        _out = data;
         [_outSocket writeData:data withTimeout:-1 tag:4];
         [_outSocket readDataWithTimeout:-1 tag:8];
+        [_inSocket readDataWithTimeout:-1 tag:9];
     } else {
         NSLog(@"data from server");
         [_inSocket writeData:data withTimeout:-1 tag:5];
         [_inSocket readDataWithTimeout:-1 tag:9];
+        [_outSocket readDataWithTimeout:-1 tag:8];
     }
-
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
@@ -75,11 +79,13 @@
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     NSString *name = sock == _inSocket ? @"in" : @"out";
     NSLog(@"closed %@, %@", name, err);
-    if (sock == _inSocket) {
-        [_outSocket disconnectAfterReadingAndWriting];
-    } else {
-        [_inSocket disconnectAfterReadingAndWriting];
-    }
+    GCDAsyncSocket *theOtherSock = sock == _inSocket ? _outSocket : _inSocket;
+    if (theOtherSock.isDisconnected) _closeCallback(self, NULL);
+    else [theOtherSock disconnectAfterWriting];
+}
+
+- (NSString *)description {
+    return [[NSString alloc]initWithFormat:@"Tunnel(%@ -> %@)", _inDescription, _outDescription];
 }
 
 @end
