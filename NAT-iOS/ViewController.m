@@ -24,7 +24,7 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 
 @implementation ViewController
 - (IBAction)toggleSwitch:(id)sender {
-    NSLog(@"state %ld", self.switchButton.state);
+    NSLog(@"state %d", (int)self.switchButton.state);
     if ([_client connected]) {
         [_client stop];
     } else {
