@@ -58,14 +58,18 @@ typedef void (^ManagerCallback)(NETunnelProviderManager *__nullable manager);
         else callback(manager);
     }];
 }
+- (void)enableManager:(NETunnelProviderManager *)manager :(ManagerCallback)callback {
+    manager.enabled = YES;
+    [manager saveToPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) return callback(nil);
+        else callback(manager);
+    }];
+}
 - (void)getManager:(ManagerCallback)callback {
     [self loadManager:^(NETunnelProviderManager * _Nullable manager) {
-        if (manager) return callback(manager);
-        [self createManager:^(NETunnelProviderManager * _Nullable manager) {
-            if (!manager) return callback(nil);
-
-            [self loadManager:callback];
-        }];
+        if (!manager) [self createManager:callback];
+        else if (manager.isEnabled) callback(manager);
+        else [self enableManager:manager :callback];
     }];
 }
 
