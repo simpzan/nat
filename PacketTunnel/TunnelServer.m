@@ -31,7 +31,7 @@
     proxySettings.HTTPSServer = proxySettings.HTTPServer;
     proxySettings.excludeSimpleHostnames = true;
     // This will match all domains
-    proxySettings.matchDomains = @[@"baidu.com"];
+    proxySettings.matchDomains = @[@""];
     return proxySettings;
 }
 

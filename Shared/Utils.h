@@ -18,6 +18,8 @@ void setPort(void *data, uint16_t port);
 
 void delay(double delayInSeconds, void(^callback)(void));
 void test(NSString *ip);
+int httpRequestSocket(const char *host, uint16_t port);
+void httpRequestGCDAsyncSocket(NSString *host, uint16_t port);
 
 NSString *getContainingAppId(void);
 NSString *getSharedAppGroupId(void);
