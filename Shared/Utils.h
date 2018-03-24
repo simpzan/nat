@@ -20,6 +20,7 @@ void delay(double delayInSeconds, void(^callback)(void));
 void test(NSString *ip);
 int httpRequestSocket(const char *host, uint16_t port);
 void httpRequestGCDAsyncSocket(NSString *host, uint16_t port);
+void dnsTest(const char *domain);
 
 NSString *getContainingAppId(void);
 NSString *getSharedAppGroupId(void);

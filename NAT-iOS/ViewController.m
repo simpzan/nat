@@ -60,14 +60,16 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 }
 - (IBAction)containingAppTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
-    NSArray *actions = @[@"routed ip, NSString", @"normal ip, NSString", @"routed ip, Socket", @"normal ip, Socket"];
+    NSArray *actions = @[@"routed ip, NSString", @"normal ip, NSString", @"routed ip, Socket", @"normal ip, Socket", @"dns"];
     [self select:actions title:@"test from Containing app with" :^(int index) {
         if (index < 0) return;
         NSString *ipToTest = index % 2 == 0 ? routedIp : normalIp;
         if (index < 2) {
             test(ipToTest);
-        } else {
+        } else if (index < 4) {
             httpRequestGCDAsyncSocket(ipToTest, 80);
+        } else {
+            dnsTest("www.taobao.com");
         }
     }];
 }
