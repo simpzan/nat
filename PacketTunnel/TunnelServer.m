@@ -16,6 +16,7 @@
 
 @interface TunnelServer() {
     ProxyServer *_proxy;
+    ProxyServer *_proxy2;
     NEPacketTunnelProvider *_provider;
 }
 @end
@@ -25,21 +26,21 @@
 - (NEProxySettings *)getProxySettings {
     NEProxySettings *proxySettings = [[NEProxySettings alloc] init];
     proxySettings.HTTPEnabled = true;
-    proxySettings.HTTPServer = [[NEProxyServer alloc] initWithAddress:@"127.0.0.1" port:extensionProxyPort];
+    proxySettings.HTTPServer = [[NEProxyServer alloc] initWithAddress:proxyIp2 port:extensionProxyPort2];
     proxySettings.HTTPSEnabled = true;
     proxySettings.HTTPSServer = proxySettings.HTTPServer;
     proxySettings.excludeSimpleHostnames = true;
     // This will match all domains
-    proxySettings.matchDomains = @[@""];
+    proxySettings.matchDomains = @[@"baidu.com"];
     return proxySettings;
 }
 
 - (NEPacketTunnelNetworkSettings *)getTunnelSettings {
-    NEIPv4Route *route = [[NEIPv4Route alloc]initWithDestinationAddress:routedIp subnetMask:netMask];
-    NEIPv4Route *dnsRoute = [[NEIPv4Route alloc]initWithDestinationAddress:dnsIp subnetMask:@"255.255.255.255"];
+    NEIPv4Route *route = [[NEIPv4Route alloc]initWithDestinationAddress:routedIp subnetMask:netMask32];
+    NEIPv4Route *dnsRoute = [[NEIPv4Route alloc]initWithDestinationAddress:dnsIp subnetMask:netMask32];
     
 //    NEIPv4Route *defaultRoute = [NEIPv4Route defaultRoute];
-    NEIPv4Settings *v4 = [[NEIPv4Settings alloc]initWithAddresses:@[interfaceIp] subnetMasks:@[netMask]];
+    NEIPv4Settings *v4 = [[NEIPv4Settings alloc]initWithAddresses:@[interfaceIp] subnetMasks:@[netMask24]];
     v4.includedRoutes = @[route];
     v4.excludedRoutes = @[dnsRoute];
 
@@ -47,7 +48,7 @@
     settings.MTU = [NSNumber numberWithInt:1500];
     settings.IPv4Settings = v4;
     settings.DNSSettings = [[NEDNSSettings alloc]initWithServers:@[dnsIp]];
-//    settings.proxySettings = [self getProxySettings];
+    settings.proxySettings = [self getProxySettings];
     return settings;
 }
 
@@ -71,12 +72,14 @@
     NSLog(@"%s", __FUNCTION__);
     
     _proxy = [[ProxyServer alloc]init];
+    _proxy2 = [[ProxyServer alloc]init];
     _provider = provider;
     [provider setTunnelNetworkSettings:[self getTunnelSettings] completionHandler:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"setTunnelNetworkSettings error, %@", error);
         } else {
             [_proxy startWithAddress:proxyIp port:extensionProxyPort];
+            [_proxy2 startWithAddress:proxyIp2 port:extensionProxyPort2];
             [self readPackets:_provider.packetFlow];
         }
         return callback(error);
@@ -99,5 +102,6 @@
 
 - (void)stop {
     [_proxy stop];
+    [_proxy2 stop];
 }
 @end
