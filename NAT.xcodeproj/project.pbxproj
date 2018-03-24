@@ -57,6 +57,7 @@
 		76CB686C20553E8900A4CA19 /* NAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CB686B20553E8900A4CA19 /* NAT.m */; };
 		76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76E2AD3120513ABB0034713E /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
+		76F9CF8E2066215C007697E1 /* UIViewController+ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9CF8D2066215C007697E1 /* UIViewController+ActionSheet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,8 @@
 		76D0A6C920514DFF0074BFC0 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		76E2AD2F20513ABA0034713E /* Checksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
 		76E2AD3020513ABB0034713E /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
+		76F9CF8C2066215C007697E1 /* UIViewController+ActionSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ActionSheet.h"; sourceTree = "<group>"; };
+		76F9CF8D2066215C007697E1 /* UIViewController+ActionSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ActionSheet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,8 @@
 				76AA56A12056B75B00B80C07 /* AppDelegate.m */,
 				76AA56A32056B75B00B80C07 /* ViewController.h */,
 				76AA56A42056B75B00B80C07 /* ViewController.m */,
+				76F9CF8C2066215C007697E1 /* UIViewController+ActionSheet.h */,
+				76F9CF8D2066215C007697E1 /* UIViewController+ActionSheet.m */,
 				76AA56A62056B75B00B80C07 /* Main.storyboard */,
 				76AA56A92056B75B00B80C07 /* Assets.xcassets */,
 				76AA56AB2056B75B00B80C07 /* LaunchScreen.storyboard */,
@@ -570,6 +575,7 @@
 				76AA56A52056B75B00B80C07 /* ViewController.m in Sources */,
 				76AA56B02056B75B00B80C07 /* main.m in Sources */,
 				7673EF062062924C00DE7E0D /* NAT.m in Sources */,
+				76F9CF8E2066215C007697E1 /* UIViewController+ActionSheet.m in Sources */,
 				76B06B49205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */,
 				7673EF0A2062926400DE7E0D /* Checksum.m in Sources */,

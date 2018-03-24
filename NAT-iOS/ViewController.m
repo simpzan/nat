@@ -11,6 +11,7 @@
 #import "ProxyServer.h"
 #import "Utils.h"
 #import "Config.h"
+#import "UIViewController+ActionSheet.h"
 
 NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 
@@ -59,7 +60,11 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 }
 - (IBAction)containingAppTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
-    test(routedIp);
+    [self select:@[@"routed ip", @"normal ip"] title:@"test from Containing app with" :^(int index) {
+        if (index < 0) return;
+        NSString *ipToTest = index == 0 ? routedIp : normalIp;
+        test(ipToTest);
+    }];
 }
 - (IBAction)extensionTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
