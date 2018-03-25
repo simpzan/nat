@@ -328,3 +328,34 @@ void dnsTest(const char *domain) {
     return;
 }
 
+#include <netdb.h>
+#include <stdio.h>
+
+void udpSend(const char *address, uint16_t port, const char *msg) {
+    int s;
+    struct sockaddr_in server;
+    
+    /* Create a datagram socket in the internet domain and use the
+     * default protocol (UDP).
+     */
+    if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+        NSLog(@"socket()");
+        return;
+    }
+    
+    /* Set up the server name */
+    server.sin_family      = AF_INET;            /* Internet Domain    */
+    server.sin_port        = port;               /* Server Port        */
+    server.sin_addr.s_addr = inet_addr(address); /* Server's Address   */
+    
+    /* Send the message in buf to the server */
+    if (sendto(s, msg, (strlen(msg)+1), 0,
+               (struct sockaddr *)&server, sizeof(server)) < 0) {
+        NSLog(@"sendto()");
+        return;
+    }
+    
+    /* Deallocate the socket */
+    close(s);
+    NSLog(@"udpSend %s:%d, %s", address, port, msg);
+}

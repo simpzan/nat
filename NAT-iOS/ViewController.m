@@ -60,7 +60,7 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
 }
 - (IBAction)containingAppTest:(id)sender {
     NSLog(@"%s", __FUNCTION__);
-    NSArray *actions = @[@"routed ip, NSString", @"normal ip, NSString", @"routed ip, Socket", @"normal ip, Socket", @"dns"];
+    NSArray *actions = @[@"routed ip, NSString", @"normal ip, NSString", @"routed ip, Socket", @"normal ip, Socket", @"routed ip, udp", @"normal ip, udp", @"dns"];
     [self select:actions title:@"test from Containing app with" :^(int index) {
         if (index < 0) return;
         NSString *ipToTest = index % 2 == 0 ? routedIp : normalIp;
@@ -68,6 +68,8 @@ NSString *providerBundleIdentifier = @"com.simpzan.NAT2.PacketTunnel2";
             test(ipToTest);
         } else if (index < 4) {
             httpRequestGCDAsyncSocket(ipToTest, 80);
+        } else if (index < 6) {
+            udpSend([ipToTest cStringUsingEncoding:NSUTF8StringEncoding], 16383, "hello udp");
         } else {
             dnsTest("www.taobao.com");
         }

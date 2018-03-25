@@ -58,6 +58,10 @@
 		76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76382FB2204D5D6000C76F45 /* ProxyServer.m */; };
 		76E2AD3120513ABB0034713E /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E2AD2F20513ABA0034713E /* Checksum.m */; };
 		76F9CF8E2066215C007697E1 /* UIViewController+ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9CF8D2066215C007697E1 /* UIViewController+ActionSheet.m */; };
+		76F9D0E62067A143007697E1 /* DNSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9D0E42067A142007697E1 /* DNSMessage.m */; };
+		76F9D0E72067A143007697E1 /* DNSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9D0E42067A142007697E1 /* DNSMessage.m */; };
+		76F9D0E82067A158007697E1 /* DNSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9D0E42067A142007697E1 /* DNSMessage.m */; };
+		76F9D0E92067A159007697E1 /* DNSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9D0E42067A142007697E1 /* DNSMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +178,8 @@
 		76E2AD3020513ABB0034713E /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
 		76F9CF8C2066215C007697E1 /* UIViewController+ActionSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ActionSheet.h"; sourceTree = "<group>"; };
 		76F9CF8D2066215C007697E1 /* UIViewController+ActionSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ActionSheet.m"; sourceTree = "<group>"; };
+		76F9D0E42067A142007697E1 /* DNSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSMessage.m; sourceTree = "<group>"; };
+		76F9D0E52067A142007697E1 /* DNSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSMessage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +269,8 @@
 				76CB686B20553E8900A4CA19 /* NAT.m */,
 				76382FB6204D68AE00C76F45 /* TCPPacket.h */,
 				76382FB7204D68AE00C76F45 /* TCPPacket.m */,
+				76F9D0E52067A142007697E1 /* DNSMessage.h */,
+				76F9D0E42067A142007697E1 /* DNSMessage.m */,
 				76E2AD3020513ABB0034713E /* Checksum.h */,
 				76E2AD2F20513ABA0034713E /* Checksum.m */,
 				76382F71204CF21300C76F45 /* Info.plist */,
@@ -534,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F9D0E82067A158007697E1 /* DNSMessage.m in Sources */,
 				76B06B47205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FA9204D2AA200C76F45 /* TunnelClient.m in Sources */,
 				76382FB3204D5D6000C76F45 /* ProxyServer.m in Sources */,
@@ -554,6 +563,7 @@
 				76B06B48205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76382FAD204D405400C76F45 /* TunnelServer.m in Sources */,
 				76D0A6C72051491D0074BFC0 /* ProxyServer.m in Sources */,
+				76F9D0E62067A143007697E1 /* DNSMessage.m in Sources */,
 				76382F70204CF21300C76F45 /* PacketTunnelProvider.m in Sources */,
 				7673EF0220628B7C00DE7E0D /* Tunnel.m in Sources */,
 				76CB686C20553E8900A4CA19 /* NAT.m in Sources */,
@@ -575,6 +585,7 @@
 				76AA56A52056B75B00B80C07 /* ViewController.m in Sources */,
 				76AA56B02056B75B00B80C07 /* main.m in Sources */,
 				7673EF062062924C00DE7E0D /* NAT.m in Sources */,
+				76F9D0E92067A159007697E1 /* DNSMessage.m in Sources */,
 				76F9CF8E2066215C007697E1 /* UIViewController+ActionSheet.m in Sources */,
 				76B06B49205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56A22056B75B00B80C07 /* AppDelegate.m in Sources */,
@@ -589,6 +600,7 @@
 				76B06B4A205E8B7B007D6902 /* GCDAsyncSocket.m in Sources */,
 				76AA56C62056B86900B80C07 /* PacketTunnelProvider.m in Sources */,
 				76AA56C72056B86C00B80C07 /* TunnelServer.m in Sources */,
+				76F9D0E72067A143007697E1 /* DNSMessage.m in Sources */,
 				76AA56C82056B87800B80C07 /* NAT.m in Sources */,
 				7673EF0420628B7C00DE7E0D /* Tunnel.m in Sources */,
 				76AA56C92056B87800B80C07 /* TCPPacket.m in Sources */,

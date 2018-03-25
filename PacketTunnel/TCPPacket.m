@@ -64,4 +64,9 @@
     return _data;
 }
 
+- (NSData *)udpData {
+    uint64_t len = _data.length - _ipHeaderSize - 8;
+    return [_data subdataWithRange:NSMakeRange(_ipHeaderSize + 8, len)];
+}
+
 @end

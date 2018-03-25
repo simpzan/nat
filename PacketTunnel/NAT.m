@@ -8,7 +8,7 @@
 
 #import "NAT.h"
 #import "TCPPacket.h"
-
+#import "DNSMessage.h"
 
 NAT *instance() {
     static NAT *nat = NULL;
@@ -54,6 +54,16 @@ NAT *instance() {
     
     if (![packet.sourceAddress isEqualToString:interfaceIp]) {
         NSLog(@"Does not know how to handle packet");
+        return nil;
+    }
+    if (packet.protocol == 17 && packet.destinationPort == 53) {
+        DNSMessage *dns = [[DNSMessage alloc] initWithData:packet.udpData];
+        NSLog(@"dns, %@", dns);
+        return nil;
+    }
+    if (packet.protocol == 17) {
+        NSString *str = [[NSString alloc]initWithData:packet.udpData encoding:NSUTF8StringEncoding];
+        NSLog(@"udp data %@", str);
         return nil;
     }
     if (packet.protocol != 6) {

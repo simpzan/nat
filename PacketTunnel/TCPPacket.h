@@ -21,5 +21,6 @@
 @property (nonatomic) uint8_t protocol;
 
 - (NSData *)raw;
+- (NSData *)udpData;
 
 @end
